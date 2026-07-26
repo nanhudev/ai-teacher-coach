@@ -1,0 +1,4 @@
+interface:
+  display_name: "Godot Blender Third-Person Starter"
+  short_description: "Smooth Godot third-person game starter with Blender assets."
+  default_prompt: "Use $godot-blender-third-person-starter to build a smooth third-person Godot prototype with Blender assets."

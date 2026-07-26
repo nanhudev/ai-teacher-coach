@@ -1,0 +1,55 @@
+extends CharacterBody3D
+
+@export_category("Movement")
+@export var walk_speed := 5.0
+@export var acceleration := 18.0
+@export var deceleration := 24.0
+@export var turn_speed := 12.0
+@export var jump_velocity := 5.5
+@export var gravity := 18.0
+
+@export_category("Camera smoothing")
+@export var look_sensitivity := 0.003
+@export var camera_position_smoothing := 14.0
+@export var camera_rotation_smoothing := 18.0
+@export var min_pitch := deg_to_rad(-55.0)
+@export var max_pitch := deg_to_rad(60.0)
+
+@onready var pivot: Node3D = $Pivot
+
+var _target_yaw := 0.0
+var _target_pitch := deg_to_rad(-12.0)
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	_target_yaw = pivot.rotation.y
+	_target_pitch = pivot.rotation.x
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		_target_yaw -= event.relative.x * look_sensitivity
+		_target_pitch = clamp(_target_pitch - event.relative.y * look_sensitivity, min_pitch, max_pitch)
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	elif Input.is_action_just_pressed("jump"):
+		velocity.y = jump_velocity
+
+	var input_vector := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var camera_basis := pivot.global_transform.basis
+	var desired_direction := (camera_basis * Vector3(input_vector.x, 0.0, input_vector.y)).normalized()
+	var desired_velocity := desired_direction * walk_speed
+	var rate := acceleration if desired_direction.length() > 0.0 else deceleration
+	velocity.x = move_toward(velocity.x, desired_velocity.x, rate * delta)
+	velocity.z = move_toward(velocity.z, desired_velocity.z, rate * delta)
+
+	if desired_direction.length() > 0.0:
+		var desired_yaw := atan2(-desired_direction.x, -desired_direction.z)
+		rotation.y = lerp_angle(rotation.y, desired_yaw, min(turn_speed * delta, 1.0))
+
+	pivot.rotation.y = lerp_angle(pivot.rotation.y, _target_yaw, min(camera_rotation_smoothing * delta, 1.0))
+	pivot.rotation.x = lerp_angle(pivot.rotation.x, _target_pitch, min(camera_position_smoothing * delta, 1.0))
+	move_and_slide()

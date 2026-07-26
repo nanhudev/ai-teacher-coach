@@ -1,0 +1,10 @@
+{
+  "subject": "科学",
+  "stages": [
+    { "stage": "现象观察", "intent": "引发好奇" },
+    { "stage": "提出假设", "intent": "形成探究问题" },
+    { "stage": "实验/证据", "intent": "收集证据" },
+    { "stage": "解释结论", "intent": "建构科学解释" },
+    { "stage": "应用拓展", "intent": "迁移到新情境" }
+  ]
+}

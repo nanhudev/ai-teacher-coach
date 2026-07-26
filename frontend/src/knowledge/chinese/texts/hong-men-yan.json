@@ -1,0 +1,173 @@
+{
+  "id": "hong-men-yan",
+  "title": "鸿门宴",
+  "author": "司马迁",
+  "dynasty": "汉",
+  "unit": "必修下",
+  "kind": "classical",
+  "ppt_style": "competition",
+  "source": "verified",
+  "confidence": 1,
+  "excerpts": [
+    {
+      "label": "宴前",
+      "text": "沛公军霸上。旦日饮士卒，为击破沛公军！"
+    },
+    {
+      "label": "宴中",
+      "text": "樊呕覆其盾于地，加豖肩上，拔剑切而啖之。"
+    }
+  ],
+  "background": "秦末楚汉相争关键节点。",
+  "background_bullets": [
+    "秦末",
+    "楚汉",
+    "鸿门一宴"
+  ],
+  "core_questions": [
+    "关键转折在哪？",
+    "人物各起何作用？"
+  ],
+  "classroom_questions": [
+    "刘邦为何能脱身？",
+    "项羽为何不忍？"
+  ],
+  "annotation": {
+    "实词": [
+      {
+        "word": "饮",
+        "meaning": "款待",
+        "example": "旦日饮士卒"
+      },
+      {
+        "word": "翼蔽",
+        "meaning": "护卫",
+        "example": "翼蔽沛公"
+      },
+      {
+        "word": "啖",
+        "meaning": "吃",
+        "example": "啖之"
+      }
+    ],
+    "虚词": [
+      {
+        "word": "因",
+        "usage": "于是",
+        "example": "因留沛公"
+      }
+    ],
+    "句式": [
+      {
+        "type": "被动",
+        "example": "为所虏",
+        "note": "为所"
+      }
+    ]
+  },
+  "sentence_analysis": [
+    {
+      "sentence": "如今人方为刀凎，我为鱼肉，何辞为？",
+      "translation": "人家是刀砧，我们是鱼肉。",
+      "meaning": "樊呕点破危机"
+    }
+  ],
+  "paragraph_analysis": [
+    {
+      "paragraph": 2,
+      "content": "如今人方为刀凎，我为鱼肉，何辞为？",
+      "analysis": [
+        "比喻"
+      ],
+      "teaching_value": "推动脱身"
+    }
+  ],
+  "key_sentences": [
+    {
+      "text": "如今人方为刀凎，我为鱼肉，何辞为？",
+      "technique": "比喻",
+      "effect": "点明危机"
+    }
+  ],
+  "stacked_words": [
+    {
+      "word": "饮",
+      "effect": "款待"
+    },
+    {
+      "word": "啖",
+      "effect": "吃"
+    }
+  ],
+  "scenery_layers": [
+    "宴前",
+    "宴中",
+    "宴后"
+  ],
+  "emotion_arc": [
+    {
+      "stage": "宴前",
+      "detail": "危机"
+    },
+    {
+      "stage": "宴中",
+      "detail": "杀机"
+    },
+    {
+      "stage": "宴后",
+      "detail": "脱身"
+    }
+  ],
+  "literary_features": [
+    "人物对照",
+    "细节"
+  ],
+  "structure": [
+    {
+      "part": "宴前",
+      "content": "策略"
+    },
+    {
+      "part": "宴中",
+      "content": "舞剑"
+    },
+    {
+      "part": "宴后",
+      "content": "逃归"
+    }
+  ],
+  "exam_points": [
+    "人物",
+    "实词",
+    "细节",
+    "结构"
+  ],
+  "gaokao_method": [
+    {
+      "label": "人物",
+      "detail": "言行性格"
+    },
+    {
+      "label": "结构",
+      "detail": "宴前中后"
+    }
+  ],
+  "practice_item": {
+    "prompt": "比较刘项",
+    "hint": "隐忍 vs 不忍"
+  },
+  "knowledge_tree": [
+    "人物",
+    "细节",
+    "性格命运"
+  ],
+  "common_questions": [
+    "比较刘项。"
+  ],
+  "teaching_difficulties": [
+    "人物关系复杂"
+  ],
+  "visual_prompts": [
+    "鸿门宴古风，16:9"
+  ]
+}

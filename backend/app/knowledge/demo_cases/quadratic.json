@@ -1,0 +1,196 @@
+{
+  "id": "quadratic",
+  "label": "初中数学 · 一元二次方程",
+  "subject": "数学",
+  "grade": "初中",
+  "period_count": 1,
+  "knowledge_points": ["方程概念", "求根思路", "检验"],
+  "role_default": "k12",
+  "director": {
+    "course": "一元二次方程",
+    "subject": "数学",
+    "grade": "初中",
+    "course_type": "概念与方法课",
+    "recommended_theories": [
+      { "name": "建构主义", "reason": "从真实面积/运动问题引出方程" },
+      { "name": "认知主义", "reason": "建立「设未知数—列式—求解—检验」认知程序" },
+      { "name": "行为主义", "reason": "变式练习与即时反馈巩固程序" }
+    ],
+    "teaching_strategy": [
+      { "name": "问题导向教学", "reason": "用可建模的生活问题驱动概念形成" },
+      { "name": "支架式教学", "reason": "从具体数到字母，再到一般形式" }
+    ],
+    "learning_objectives": [
+      "理解一元二次方程的含义与一般形式",
+      "能根据简单情境列方程",
+      "掌握一种求根思路并会检验"
+    ],
+    "student_difficulties": [
+      "分不清「一元」与「二次」",
+      "列式时单位/等量关系混乱",
+      "求出根后忘记检验"
+    ],
+    "teaching_mode": "情境—概念—变式",
+    "stage_template": "math",
+    "stages": [
+      { "stage": "情境引入", "intent": "面积问题引出未知数", "theory": "建构主义" },
+      { "stage": "概念形成", "intent": "抽象一般形式 ax²+bx+c=0", "theory": "认知主义" },
+      { "stage": "例题示范", "intent": "示范求解与检验", "theory": "支架式教学" },
+      { "stage": "变式训练", "intent": "巩固与纠错", "theory": "行为主义" },
+      { "stage": "总结反思", "intent": "提炼步骤与易错点", "theory": "认知主义" }
+    ],
+    "downstream": { "lesson": true, "ppt": true, "simulation": true, "evaluation": true }
+  },
+  "lesson": {
+    "title": "一元二次方程（概念与初步求解）",
+    "objectives": [
+      "理解一元二次方程含义（理解）",
+      "能列简单方程（应用）",
+      "会求解并检验（应用）"
+    ],
+    "key_points": ["一般形式", "等量关系建模"],
+    "difficulty_points": ["列式", "检验意识"],
+    "process": [
+      {
+        "stage": "情境引入（8min）",
+        "teacher_action": "给出花园扩建面积问题，请学生尝试表达",
+        "student_action": "小组写出等量关系",
+        "theory": "建构主义",
+        "time": "8分钟"
+      },
+      {
+        "stage": "概念形成（10min）",
+        "teacher_action": "对比一次/二次方程，提炼一般形式",
+        "student_action": "判断一组式子是否为一元二次方程",
+        "theory": "认知主义",
+        "time": "10分钟"
+      },
+      {
+        "stage": "例题示范（12min）",
+        "teacher_action": "支架演示：设—列—解—检",
+        "student_action": "跟随填写步骤卡",
+        "theory": "支架式教学",
+        "time": "12分钟"
+      },
+      {
+        "stage": "变式训练（10min）",
+        "teacher_action": "两道变式 + 巡回反馈",
+        "student_action": "独立完成并互查检验步骤",
+        "theory": "行为主义",
+        "time": "10分钟"
+      },
+      {
+        "stage": "总结（5min）",
+        "teacher_action": "板书四步法与易错点",
+        "student_action": "出口票：写出一般形式并举一例",
+        "theory": "认知主义",
+        "time": "5分钟"
+      }
+    ],
+    "activities": ["情境建模", "概念判断", "步骤卡", "变式互查", "出口票"],
+    "assessment": ["出口票", "变式正确率"]
+  },
+  "objective_alignment": {
+    "score": 90,
+    "summary": "概念、应用目标均有对应活动；检验环节被明确写入例题与变式。",
+    "checks": [
+      { "objective": "理解含义与一般形式", "supported_by": ["概念判断"], "aligned": true },
+      { "objective": "能列简单方程", "supported_by": ["情境建模"], "aligned": true },
+      { "objective": "求解并检验", "supported_by": ["步骤卡", "变式互查"], "aligned": true }
+    ],
+    "issues": [],
+    "suggestions": ["可为学困生提供「等量关系句框」支架"]
+  },
+  "ppt": {
+    "template_id": "lively",
+    "template_name": "活力课堂风",
+    "slides": [
+      { "id": 1, "layout": "title", "title": "一元二次方程", "subtitle": "从一块花园说起", "bullets": [] },
+      { "id": 2, "layout": "question", "title": "今日问题", "bullets": ["边长增加后面积如何表示？"] },
+      { "id": 3, "layout": "objective", "title": "学习目标", "bullets": ["认形式", "会列式", "能检验"] },
+      { "id": 4, "layout": "two_column", "title": "一次 vs 二次", "left": ["x 的一次", "直线关系"], "right": ["x² 出现", "面积/加速度"], "bullets": [] },
+      { "id": 5, "layout": "steps", "title": "四步法", "bullets": ["设", "列", "解", "检"] },
+      { "id": 6, "layout": "exit_ticket", "title": "出口票", "bullets": ["写出一般形式", "自编一道生活题"] }
+    ]
+  },
+  "before_after": {
+    "before": {
+      "title": "旧讲法常见问题",
+      "issues": [
+        { "label": "定义先行", "detail": "先甩公式再做题，学生不知为何学" },
+        { "label": "练习无反馈", "detail": "大量刷题但当堂不知错在哪" },
+        { "label": "缺检验习惯", "detail": "求出根即结束" }
+      ]
+    },
+    "after": {
+      "title": "优化后",
+      "improvements": [
+        { "label": "情境建模", "detail": "先问题后概念" },
+        { "label": "步骤支架", "detail": "设—列—解—检可视化" },
+        { "label": "当堂反馈", "detail": "变式互查 + 出口票" }
+      ]
+    }
+  },
+  "personas": [
+    {
+      "id": "m1",
+      "name": "小宇",
+      "level": "struggling",
+      "personality": "怕列式，容易空着",
+      "knowledge_gap": ["等量关系找不到"],
+      "question_style": "要具体例子",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    },
+    {
+      "id": "m2",
+      "name": "小敏",
+      "level": "medium",
+      "personality": "会算但不爱检验",
+      "knowledge_gap": ["检验意识弱"],
+      "question_style": "问要不要验算",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    },
+    {
+      "id": "m3",
+      "name": "浩然",
+      "level": "excellent",
+      "personality": "想知道有没有更快方法",
+      "knowledge_gap": ["想连接求根公式"],
+      "question_style": "追问一般性",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    }
+  ],
+  "simulation_turns": [
+    {
+      "persona_id": "m1",
+      "question": "老师，我还是不知道「等量关系」从哪找……",
+      "sample_answer": "先找题目里的「等于」：原来面积 + 增加部分 = 现在面积。把这句话写成式子就行。",
+      "understanding_delta": { "gap": "等量关系找不到", "from": "未解决", "to": "部分理解", "note": "能套句框，尚未独立迁移" }
+    },
+    {
+      "persona_id": "m2",
+      "question": "我算完了，为什么一定要检验？感觉多此一举。",
+      "sample_answer": "检验是在问：这个根是否让原式成立，也是否符合题意（比如长度不能为负）。",
+      "understanding_delta": { "gap": "检验意识弱", "from": "未解决", "to": "部分理解", "note": "接受「要检验」，方法仍需练习" }
+    },
+    {
+      "persona_id": "m3",
+      "question": "如果系数更一般，是不是有统一公式？和今天的四步法什么关系？",
+      "sample_answer": "有求根公式；四步法是通用解题框架，公式是「解」这一步的工具之一。",
+      "understanding_delta": { "gap": "想连接求根公式", "from": "未解决", "to": "深化理解", "note": "能区分框架与工具" }
+    }
+  ],
+  "evaluation": {
+    "total_score": 87,
+    "scores": [
+      { "id": "objectives", "name": "教学目标", "score": 18, "max": 20 },
+      { "id": "design", "name": "教学设计", "score": 18, "max": 20 },
+      { "id": "interaction", "name": "课堂互动", "score": 16, "max": 20 },
+      { "id": "expression", "name": "知识表达", "score": 17, "max": 20 },
+      { "id": "formative", "name": "形成性评价", "score": 18, "max": 20 }
+    ],
+    "strengths": ["情境真实", "四步法清晰", "检验被显性化"],
+    "issues": ["优秀生拓展可再给选做挑战题"],
+    "suggestions": ["为小宇准备等量关系句框卡片"]
+  }
+}

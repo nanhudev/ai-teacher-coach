@@ -1,0 +1,5 @@
+{
+  "literature_charts": ["emotion_arc", "structure_tree", "cause_chain"],
+  "stem_reserved": ["concept_chart", "function_plot", "experiment_flow"],
+  "default_for_literature": "cause_chain"
+}

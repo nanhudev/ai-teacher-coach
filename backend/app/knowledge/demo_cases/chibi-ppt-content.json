@@ -1,0 +1,230 @@
+{
+  "title": "赤壁赋",
+  "learning_objective": "理解苏轼由悲转旷达，体会景情理交融",
+  "total_minutes": 45,
+  "slides": [
+    {
+      "type": "cover",
+      "purpose": "建立课堂气质",
+      "title": "赤壁赋",
+      "subtitle": "月夜江声里的一次心灵摆渡",
+      "key_message": "一堂关于「如何安顿自己」的课",
+      "closing": "高中语文 · 第一课时",
+      "minutes_hint": 1
+    },
+    {
+      "type": "question",
+      "purpose": "激发兴趣",
+      "title": "若你被贬到陌生之地",
+      "key_message": "月夜江上，你会想什么？",
+      "bullets": [
+        "先感受，再入文",
+        "把心带进赤壁"
+      ],
+      "interaction": "30秒自由说一句",
+      "minutes_hint": 3
+    },
+    {
+      "type": "concept",
+      "purpose": "明确目标",
+      "title": "本课学习目标",
+      "key_message": "三件事，做实一课",
+      "bullets": [
+        "梳：写景—抒情—说理",
+        "悟：由悲转旷达",
+        "品：景情理交融"
+      ],
+      "minutes_hint": 2
+    },
+    {
+      "type": "timeline",
+      "purpose": "建立结构图式",
+      "title": "文本情绪起伏",
+      "subtitle": "乐 → 悲 → 喜",
+      "steps": [
+        {
+          "label": "乐",
+          "detail": "泛舟月夜"
+        },
+        {
+          "label": "悲",
+          "detail": "箫声兴叹"
+        },
+        {
+          "label": "喜",
+          "detail": "水月说理"
+        }
+      ],
+      "minutes_hint": 3
+    },
+    {
+      "type": "image_text",
+      "purpose": "情境再现",
+      "title": "初读：走进赤壁夜",
+      "key_message": "先看见江与月",
+      "bullets": [
+        "清风徐来",
+        "水波不兴",
+        "诵明月之诗"
+      ],
+      "minutes_hint": 4
+    },
+    {
+      "type": "concept",
+      "purpose": "知识探索",
+      "title": "主问题",
+      "key_message": "苏轼为何由悲转喜？",
+      "bullets": [
+        "找转折句",
+        "看他如何自解",
+        "理从何处来"
+      ],
+      "minutes_hint": 2
+    },
+    {
+      "type": "image_text",
+      "purpose": "品析景情",
+      "title": "景中藏情",
+      "key_message": "景不是背景板",
+      "bullets": [
+        "月：永恒与孤独",
+        "水：流逝与不息",
+        "箫：悲从何来"
+      ],
+      "minutes_hint": 5
+    },
+    {
+      "type": "comparison",
+      "purpose": "对照理解",
+      "title": "客之悲 vs 苏之喜",
+      "left": [
+        "人生须臾",
+        "慕英雄而不得",
+        "哀吾生之须臾"
+      ],
+      "right": [
+        "物与我皆无尽",
+        "自其不变者观之",
+        "共适清风明月"
+      ],
+      "key_message": "同一江月，两种观法",
+      "minutes_hint": 4
+    },
+    {
+      "type": "process",
+      "purpose": "概念建立",
+      "title": "读懂「变与不变」",
+      "bullets": [
+        "看流逝：变",
+        "看长在：不变",
+        "换角度看得失"
+      ],
+      "minutes_hint": 4
+    },
+    {
+      "type": "image_text",
+      "purpose": "案例分析",
+      "title": "水月如何说理",
+      "key_message": "比喻是思想的桥",
+      "bullets": [
+        "以水喻变",
+        "以月喻常",
+        "理在景中"
+      ],
+      "minutes_hint": 4
+    },
+    {
+      "type": "question",
+      "purpose": "深度追问",
+      "title": "旷达会不会变成摆烂？",
+      "key_message": "边界在哪里？",
+      "bullets": [
+        "尽人事",
+        "安顿内心",
+        "不是停止行动"
+      ],
+      "interaction": "同桌互答 1 分钟",
+      "minutes_hint": 3
+    },
+    {
+      "type": "activity",
+      "purpose": "课堂互动",
+      "title": "小组任务：景情对照表",
+      "key_message": "用原文说话",
+      "bullets": [
+        "找出一处景",
+        "写出对应情",
+        "汇报一句理"
+      ],
+      "interaction": "4人组，6分钟完成",
+      "minutes_hint": 6
+    },
+    {
+      "type": "concept",
+      "purpose": "支架提示",
+      "title": "文言小支架",
+      "key_message": "卡住时先看这三处",
+      "bullets": [
+        "纵一苇之所如",
+        "渺沧海之一粟",
+        "逝者如斯"
+      ],
+      "minutes_hint": 2
+    },
+    {
+      "type": "image_text",
+      "purpose": "情感升华",
+      "title": "今天的「赤壁」",
+      "key_message": "压力情境里如何自处",
+      "bullets": [
+        "考试失利",
+        "被否定时",
+        "如何看见不变"
+      ],
+      "minutes_hint": 3
+    },
+    {
+      "type": "summary",
+      "purpose": "总结",
+      "title": "带走三句话",
+      "bullets": [
+        "结构：景—情—理",
+        "转折：悲中见喜",
+        "方法：换观看待"
+      ],
+      "closing": "旷达不是口号，是视角",
+      "minutes_hint": 2
+    },
+    {
+      "type": "homework",
+      "purpose": "迁移巩固",
+      "title": "出口票 + 微写作",
+      "bullets": [
+        "一句话解释变与不变",
+        "写80字「我的旷达」"
+      ],
+      "closing": "下节课分享你的句子",
+      "minutes_hint": 2
+    },
+    {
+      "type": "process",
+      "purpose": "板书提示",
+      "title": "板书建议",
+      "bullets": [
+        "左：情绪轴",
+        "中：主问题",
+        "右：水月说理"
+      ],
+      "minutes_hint": 1
+    },
+    {
+      "type": "cover",
+      "purpose": "收束气质",
+      "title": "共适",
+      "subtitle": "清风与明月，本来属于每一个愿意看见的人",
+      "key_message": "下课，但不结束思考",
+      "closing": "谢谢同学们",
+      "minutes_hint": 1
+    }
+  ]
+}

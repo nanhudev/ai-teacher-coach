@@ -1,0 +1,24 @@
+{
+  "layouts": {
+    "cover_hero": { "component": "CoverSlide", "type": "cover" },
+    "question_focus": { "component": "QuestionSlide", "type": "question" },
+    "question_card": { "component": "QuestionCardSlide", "type": "question_card" },
+    "quote_analysis": { "component": "QuoteAnalysisSlide", "type": "quote_analysis" },
+    "image_scene": { "component": "ImageSceneSlide", "type": "image_scene" },
+    "literature_card": { "component": "TextAnalysisSlide", "type": "text_analysis" },
+    "quote_stage": { "component": "QuoteSlide", "type": "quote" },
+    "process_arc": { "component": "ProcessSlide", "type": "process" },
+    "activity_board": { "component": "ActivitySlide", "type": "activity" },
+    "compare_lens": { "component": "ComparisonSlide", "type": "comparison" },
+    "summary_close": { "component": "SummarySlide", "type": "summary" },
+    "homework_tier": { "component": "HomeworkSlide", "type": "homework" },
+    "timeline_path": { "component": "TimelineSlide", "type": "timeline" }
+  },
+  "density": {
+    "title_max": 12,
+    "excerpt_max": 56,
+    "card_max": 3,
+    "card_detail_max": 14
+  },
+  "forbid": ["concept_bullet_dump", "title_plus_three_bullets"]
+}

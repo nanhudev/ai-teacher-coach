@@ -1,0 +1,9 @@
+{
+  "subject": "通用",
+  "stages": [
+    { "stage": "导入", "intent": "明确学习目标" },
+    { "stage": "新知", "intent": "建构核心内容" },
+    { "stage": "练习", "intent": "反馈强化" },
+    { "stage": "总结", "intent": "结构化回顾" }
+  ]
+}

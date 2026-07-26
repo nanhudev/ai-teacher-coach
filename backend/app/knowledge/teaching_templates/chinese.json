@@ -1,0 +1,11 @@
+{
+  "subject": "语文",
+  "stages": [
+    { "stage": "导入", "intent": "创设情境，激活经验" },
+    { "stage": "初读", "intent": "整体感知文本" },
+    { "stage": "品析", "intent": "抓住关键语句细读" },
+    { "stage": "深入理解", "intent": "把握思想情感与写法" },
+    { "stage": "情感升华", "intent": "联系自我与时代" },
+    { "stage": "作业", "intent": "迁移巩固" }
+  ]
+}

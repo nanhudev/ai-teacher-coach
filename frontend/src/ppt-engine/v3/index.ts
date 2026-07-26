@@ -1,0 +1,6 @@
+export { understandCourse } from './understand'
+export { directVisual } from './visualDirector'
+export { planSlides } from './slidePlanner'
+export { compilePlan } from './compile'
+export { buildSessionFromCourse, PRESET_COURSES } from './buildSession'
+export { exportPptxClient } from './exportPptx'

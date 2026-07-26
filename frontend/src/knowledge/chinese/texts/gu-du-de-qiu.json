@@ -1,0 +1,168 @@
+{
+  "id": "gu-du-de-qiu",
+  "title": "故都的秋",
+  "author": "郁达夫",
+  "dynasty": "现代",
+  "unit": "必修上",
+  "kind": "modern_prose",
+  "ppt_style": "modern_prose",
+  "source": "verified",
+  "confidence": 1,
+  "excerpts": [
+    {
+      "label": "文眼",
+      "text": "北国的秋，却特别地来得清，来得静，来得悲凉。"
+    },
+    {
+      "label": "落蕊",
+      "text": "像花而又不是花的那一种落蕊，早晨起来，会铺得满地。"
+    },
+    {
+      "label": "秋雨",
+      "text": "在灰沉沉的天底下，忽而来一阵凉风，便息列索落地下起雨来了。"
+    }
+  ],
+  "background": "1934年北平，郁达夫以清、静、悲凉写北国之秋——写景，更写心境。",
+  "background_bullets": [
+    "1934北平",
+    "北国之秋",
+    "清静悲凉",
+    "以情驭景"
+  ],
+  "core_questions": [
+    "为什么郁达夫偏爱悲凉的秋？",
+    "细小景物如何写出秋味？",
+    "南国之秋对比什么？"
+  ],
+  "classroom_questions": [
+    "为什么郁达夫偏爱悲凉的秋？",
+    "落蕊、秋蝉，为何专写这些细小处？",
+    "南国对比，落在何处？"
+  ],
+  "annotation": {
+    "实词": [
+      {
+        "word": "故都",
+        "meaning": "北平",
+        "example": "故都的秋"
+      }
+    ],
+    "虚词": [
+      {
+        "word": "却",
+        "usage": "转折",
+        "example": "却特别地来得清"
+      }
+    ]
+  },
+  "sentence_analysis": [
+    {
+      "sentence": "北国的秋，却特别地来得清，来得静，来得悲凉。",
+      "translation": "北方秋天格外清静悲凉。",
+      "meaning": "全文文眼"
+    }
+  ],
+  "paragraph_analysis": [
+    {
+      "paragraph": 1,
+      "content": "北国的秋，却特别地来得清，来得静，来得悲凉。",
+      "analysis": [
+        "文眼"
+      ],
+      "teaching_value": "定调"
+    }
+  ],
+  "key_sentences": [
+    {
+      "text": "北国的秋，却特别地来得清，来得静，来得悲凉。",
+      "technique": "文眼",
+      "effect": "三词定调"
+    }
+  ],
+  "stacked_words": [
+    {
+      "word": "清",
+      "effect": "澄澈"
+    },
+    {
+      "word": "静",
+      "effect": "秋意"
+    },
+    {
+      "word": "悲凉",
+      "effect": "主观秋味"
+    }
+  ],
+  "scenery_layers": [
+    "秋晨",
+    "落蕊",
+    "秋蝉",
+    "秋雨"
+  ],
+  "emotion_arc": [
+    {
+      "stage": "总起",
+      "detail": "清静悲凉"
+    },
+    {
+      "stage": "分写",
+      "detail": "细处着笔"
+    },
+    {
+      "stage": "对比",
+      "detail": "南国"
+    }
+  ],
+  "literary_features": [
+    "文眼",
+    "细处着笔",
+    "对比"
+  ],
+  "structure": [
+    {
+      "part": "总起",
+      "content": "清静悲凉"
+    },
+    {
+      "part": "分写",
+      "content": "细小景物"
+    },
+    {
+      "part": "对比",
+      "content": "南国"
+    }
+  ],
+  "exam_points": [
+    "文眼",
+    "以情驭景",
+    "对比"
+  ],
+  "gaokao_method": [
+    {
+      "label": "文眼",
+      "detail": "清静悲凉"
+    },
+    {
+      "label": "选材",
+      "detail": "以小见大"
+    }
+  ],
+  "practice_item": {
+    "prompt": "赏析文眼句",
+    "hint": "主观投射"
+  },
+  "knowledge_tree": [
+    "文眼",
+    "对比",
+    "悲凉"
+  ],
+  "common_questions": [
+    "概括北国之秋。"
+  ],
+  "teaching_difficulties": [
+    "把悲凉等同消极"
+  ],
+  "visual_prompts": [
+    "北平秋晨，16:9"
+  ]
+}

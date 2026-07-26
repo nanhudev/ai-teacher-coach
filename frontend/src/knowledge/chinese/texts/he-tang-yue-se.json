@@ -1,0 +1,212 @@
+{
+  "id": "he-tang-yue-se",
+  "title": "荷塘月色",
+  "author": "朱自清",
+  "dynasty": "现代",
+  "unit": "必修上",
+  "kind": "modern_prose",
+  "ppt_style": "modern_prose",
+  "source": "verified",
+  "confidence": 1,
+  "excerpts": [
+    {
+      "label": "缘起",
+      "text": "这几天心里颇不宁静。今晚在院子里坐着乘凉，忽然想起日日走过的荷塘，在这满月的光里，总该另有一番样子吧。"
+    },
+    {
+      "label": "荷塘",
+      "text": "曲曲折折的荷塘上面，弥望的是田田的叶子。叶子出水很高，像亭亭的舞女的裙。"
+    },
+    {
+      "label": "通感",
+      "text": "微风过处，送来缕缕清香，仿佛远处高楼上渺茫的歌声似的。"
+    },
+    {
+      "label": "月色",
+      "text": "月光如流水一般，静静地泻在这一片叶子和花上。"
+    }
+  ],
+  "background": "1927年，朱自清任教清华。「颇不宁静」为全文情感起点。",
+  "background_bullets": [
+    "1927",
+    "清华任教",
+    "时代动荡",
+    "颇不宁静"
+  ],
+  "core_questions": [
+    "「颇不宁静」从何而来？",
+    "作者如何把荷与月写成画面？",
+    "独处之妙与现实如何对照？"
+  ],
+  "classroom_questions": [
+    "为什么走向荷塘？",
+    "为什么仍无法解决不宁静？",
+    "景物如何写出内心？",
+    "真的平静了吗？"
+  ],
+  "annotation": {
+    "实词": [
+      {
+        "word": "弥望",
+        "meaning": "满眼",
+        "example": "弥望的是田田的叶子"
+      },
+      {
+        "word": "袂娜",
+        "meaning": "柔美貌",
+        "example": "有袂娜地开着的"
+      }
+    ],
+    "虚词": [
+      {
+        "word": "却",
+        "usage": "转折",
+        "example": "却又是这样"
+      }
+    ]
+  },
+  "sentence_analysis": [
+    {
+      "sentence": "微风过处，送来缕缕清香，仿佛远处高楼上渺茫的歌声似的。",
+      "translation": "微风送来荷香，像远处歌声。",
+      "meaning": "通感：嗅觉通向听觉"
+    }
+  ],
+  "paragraph_analysis": [
+    {
+      "paragraph": 4,
+      "content": "曲曲折折的荷塘上面，弥望的是田田的叶子。",
+      "analysis": [
+        "比喻",
+        "叠词"
+      ],
+      "teaching_value": "写景入口"
+    },
+    {
+      "paragraph": 5,
+      "content": "微风过处，送来缕缕清香，仿佛远处高楼上渺茫的歌声似的。",
+      "analysis": [
+        "通感"
+      ],
+      "teaching_value": "通感示范"
+    }
+  ],
+  "key_sentences": [
+    {
+      "text": "微风过处，送来缕缕清香，仿佛远处高楼上渺茫的歌声似的。",
+      "technique": "通感",
+      "effect": "嗅觉写成听觉"
+    },
+    {
+      "text": "叶子出水很高，像亭亭的舞女的裙。",
+      "technique": "比喻",
+      "effect": "荷叶有形有姿"
+    }
+  ],
+  "stacked_words": [
+    {
+      "word": "曲曲折折",
+      "effect": "轮廓"
+    },
+    {
+      "word": "田田",
+      "effect": "叶茂"
+    },
+    {
+      "word": "亭亭",
+      "effect": "出水之姿"
+    },
+    {
+      "word": "缕缕",
+      "effect": "清香细弱"
+    }
+  ],
+  "scenery_layers": [
+    "远望",
+    "近观",
+    "微风清香",
+    "月色青雾"
+  ],
+  "emotion_arc": [
+    {
+      "stage": "现实",
+      "detail": "不宁静"
+    },
+    {
+      "stage": "夜游",
+      "detail": "寻宁静"
+    },
+    {
+      "stage": "短暂宁静",
+      "detail": "景美"
+    },
+    {
+      "stage": "归来",
+      "detail": "回到现实"
+    }
+  ],
+  "literary_features": [
+    "通感",
+    "比喻",
+    "叠词",
+    "情景交融"
+  ],
+  "structure": [
+    {
+      "part": "出门",
+      "content": "寻宁静"
+    },
+    {
+      "part": "荷塘",
+      "content": "叶花风香"
+    },
+    {
+      "part": "月色",
+      "content": "泻雾影"
+    },
+    {
+      "part": "归来",
+      "content": "短暂"
+    }
+  ],
+  "exam_points": [
+    "通感",
+    "叠词",
+    "不宁静",
+    "形散神聚"
+  ],
+  "gaokao_method": [
+    {
+      "label": "手法",
+      "detail": "通感比喻叠词"
+    },
+    {
+      "label": "画面",
+      "detail": "景物层次"
+    },
+    {
+      "label": "情感",
+      "detail": "不宁静"
+    }
+  ],
+  "practice_item": {
+    "prompt": "赏析通感句",
+    "hint": "嗅觉到听觉"
+  },
+  "knowledge_tree": [
+    "写景",
+    "通感",
+    "叠词",
+    "不宁静"
+  ],
+  "common_questions": [
+    "分析通感。"
+  ],
+  "teaching_difficulties": [
+    "只看好句",
+    "混淆通感与比喻"
+  ],
+  "visual_prompts": [
+    "月夜荷塘，冷青，16:9"
+  ]
+}

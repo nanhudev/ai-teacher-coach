@@ -1,0 +1,275 @@
+{
+  "id": "chibi-fu",
+  "label": "高中语文 · 《赤壁赋》",
+  "subject": "语文",
+  "grade": "高中",
+  "period_count": 1,
+  "knowledge_points": ["文言诵读", "景情理交融", "苏轼旷达"],
+  "role_default": "k12",
+  "director": {
+    "course": "赤壁赋",
+    "subject": "语文",
+    "grade": "高中",
+    "course_type": "文学鉴赏",
+    "recommended_theories": [
+      { "name": "建构主义", "reason": "以赤壁月夜情境驱动学生对文本意义的主动建构" },
+      { "name": "支架式教学", "reason": "文言难点需分层提示，由注释到品析再到思想" },
+      { "name": "认知主义", "reason": "帮助学生建立「写景—抒情—说理」的文本结构图式" }
+    ],
+    "teaching_strategy": [
+      { "name": "问题导向教学", "reason": "用「苏轼为何由悲转喜」主问题驱动整堂探究" },
+      { "name": "支架式教学", "reason": "降低文言与哲学表达的理解门槛" }
+    ],
+    "learning_objectives": [
+      "能梳理课文写景—抒情—说理的结构脉络",
+      "理解苏轼在贬谪境遇中由悲转旷达的思想变化",
+      "体会景、情、理交融的表达效果"
+    ],
+    "student_difficulties": [
+      "文言词句障碍影响整体感知",
+      "对「变与不变」哲学表达理解不足",
+      "缺少对作者被贬背景的共情"
+    ],
+    "teaching_mode": "问题探究",
+    "stage_template": "chinese",
+    "stages": [
+      { "stage": "导入", "intent": "赤壁月夜情境 + 主问题抛出", "theory": "建构主义" },
+      { "stage": "初读", "intent": "通读感知情感起伏", "theory": "认知主义" },
+      { "stage": "品析", "intent": "抓关键句品景情", "theory": "支架式教学" },
+      { "stage": "深入理解", "intent": "讨论「变与不变」", "theory": "建构主义" },
+      { "stage": "情感升华", "intent": "联系当代压力情境", "theory": "建构主义" },
+      { "stage": "作业", "intent": "写一段「我的旷达」微写作", "theory": "行为主义" }
+    ],
+    "downstream": { "lesson": true, "ppt": true, "simulation": true, "evaluation": true }
+  },
+  "lesson": {
+    "title": "《赤壁赋》第一课时教案",
+    "objectives": [
+      "梳理写景—抒情—说理结构（理解）",
+      "理解苏轼由悲转旷达的思想变化（分析）",
+      "体会景情理交融（评价）"
+    ],
+    "key_points": ["结构脉络", "主客问答中的情感转折"],
+    "difficulty_points": ["「变与不变」的说理逻辑", "文言难点句"],
+    "process": [
+      {
+        "stage": "导入（5min）",
+        "teacher_action": "展示月夜江面图，提问：若你被贬到陌生之地，月夜江上你会想什么？",
+        "student_action": "自由表达，进入情境",
+        "theory": "建构主义",
+        "time": "5分钟"
+      },
+      {
+        "stage": "初读（10min）",
+        "teacher_action": "范读/听读，要求标注情感变化处",
+        "student_action": "圈画「乐—悲—喜」相关语句",
+        "theory": "认知主义",
+        "time": "10分钟"
+      },
+      {
+        "stage": "品析（15min）",
+        "teacher_action": "支架提问：写了哪些景？景中藏着什么情？",
+        "student_action": "小组合作完成景—情对照表",
+        "theory": "支架式教学",
+        "time": "15分钟"
+      },
+      {
+        "stage": "深入理解（10min）",
+        "teacher_action": "组织辩论：水月之「变」与「不变」分别指什么？",
+        "student_action": "引用原文陈述观点",
+        "theory": "建构主义",
+        "time": "10分钟"
+      },
+      {
+        "stage": "情感升华与作业（5min）",
+        "teacher_action": "总结旷达内涵；布置微写作；出口票检测",
+        "student_action": "完成一句「今天我学到的旷达是…」",
+        "theory": "行为主义",
+        "time": "5分钟"
+      }
+    ],
+    "activities": ["情境导入", "情感标注", "景情对照表", "主问题辩论", "出口票"],
+    "assessment": ["出口票：用一句话解释「变与不变」", "微写作：我的旷达"]
+  },
+  "objective_alignment": {
+    "score": 88,
+    "summary": "目标与活动整体匹配良好；理解/分析类目标均有文本细读与辩论支撑。",
+    "checks": [
+      {
+        "objective": "梳理写景—抒情—说理结构",
+        "supported_by": ["初读情感标注", "景情对照表"],
+        "aligned": true
+      },
+      {
+        "objective": "理解苏轼由悲转旷达",
+        "supported_by": ["主问题辩论", "深入理解环节"],
+        "aligned": true
+      },
+      {
+        "objective": "体会景情理交融",
+        "supported_by": ["品析支架提问"],
+        "aligned": true,
+        "note": "若时间紧，可再加一句「理从何处来」的追问"
+      }
+    ],
+    "issues": [],
+    "suggestions": ["出口票可明确对应「分析」层级，避免只写感受"]
+  },
+  "ppt": {
+    "template_id": "showcase",
+    "template_name": "公开课展示风",
+    "slides": [
+      {
+        "id": 1,
+        "layout": "title",
+        "title": "赤壁赋",
+        "subtitle": "月夜江声里的一次心灵摆渡",
+        "bullets": [],
+        "visual_slot": "full_bleed_night_river"
+      },
+      {
+        "id": 2,
+        "layout": "objective",
+        "title": "本课学习目标",
+        "bullets": ["梳结构", "悟转折", "品景情理"],
+        "note": "每条不超过8字，便于板书"
+      },
+      {
+        "id": 3,
+        "layout": "question",
+        "title": "主问题",
+        "bullets": ["苏轼为何由悲转喜？", "水与月如何帮助他说理？"],
+        "visual_slot": "left_quote"
+      },
+      {
+        "id": 4,
+        "layout": "two_column",
+        "title": "景 ↔ 情",
+        "left": ["清风", "明月", "江水"],
+        "right": ["泛舟之乐", "箫声之悲", "旷达之悟"],
+        "bullets": []
+      },
+      {
+        "id": 5,
+        "layout": "debate",
+        "title": "变与不变",
+        "bullets": ["变：逝者如斯", "不变：未尝往也 / 莫消长也"],
+        "visual_slot": "center_diagram"
+      },
+      {
+        "id": 6,
+        "layout": "exit_ticket",
+        "title": "出口票",
+        "bullets": ["用一句话解释「变与不变」", "写下你的「旷达」"],
+        "visual_slot": "none"
+      }
+    ]
+  },
+  "before_after": {
+    "before": {
+      "title": "常见旧课件问题（示例）",
+      "issues": [
+        { "label": "文字密度过高", "detail": "单页文言翻译堆满，约85%文字占比" },
+        { "label": "缺少互动设计", "detail": "以教师串讲为主，学生被动听讲" },
+        { "label": "无形成性评价", "detail": "下课才布置作业，课中不知懂不懂" },
+        { "label": "目标与活动脱节", "detail": "目标写「理解思想」，活动只做作者介绍" }
+      ]
+    },
+    "after": {
+      "title": "AI Teacher Coach 优化后",
+      "improvements": [
+        { "label": "情境导入", "detail": "月夜江面 + 主问题，先入情再入文" },
+        { "label": "支架品析", "detail": "景情对照表降低文言门槛" },
+        { "label": "问题探究", "detail": "辩论「变与不变」，支撑分析目标" },
+        { "label": "即时反馈", "detail": "出口票检测理解，当场看见学习证据" }
+      ]
+    }
+  },
+  "personas": [
+    {
+      "id": "p1",
+      "name": "阿哲",
+      "level": "struggling",
+      "personality": "基础文言弱，容易卡在字词",
+      "knowledge_gap": ["文言实词障碍", "不清楚作者被贬背景"],
+      "question_style": "追问字面意思",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    },
+    {
+      "id": "p2",
+      "name": "小林",
+      "level": "medium",
+      "personality": "喜欢思考但表达弱",
+      "knowledge_gap": ["概念理解不足：变与不变"],
+      "question_style": "追问原因",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    },
+    {
+      "id": "p3",
+      "name": "思远",
+      "level": "excellent",
+      "personality": "爱联系现实与哲学",
+      "knowledge_gap": ["想把旷达与当代压力对话"],
+      "question_style": "深度追问与迁移",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    }
+  ],
+  "simulation_turns": [
+    {
+      "persona_id": "p1",
+      "question": "老师，第一段里「纵一苇之所如」是什么意思？我读着好懵。",
+      "sample_answer": "可以把它想成：我们放任一叶小舟，随它漂到哪里。重点不是字词本身，而是苏轼此刻很自由、很快乐。",
+      "understanding_delta": {
+        "gap": "文言实词障碍",
+        "from": "未解决",
+        "to": "部分理解",
+        "note": "字面打通，但仍需带回情感语境"
+      }
+    },
+    {
+      "persona_id": "p2",
+      "question": "老师，我不太懂为什么水月既是「变」又是「不变」。上次讲到这里我还是卡住了。",
+      "sample_answer": "从「流逝」看是变；从「江水始终在流、月亮始终那样亮」看又像不变。苏轼借这个告诉自己：人生得失也可以换个角度看。",
+      "understanding_delta": {
+        "gap": "概念理解不足：变与不变",
+        "from": "未解决",
+        "to": "部分理解",
+        "note": "能复述比喻，尚未独立迁移"
+      }
+    },
+    {
+      "persona_id": "p3",
+      "question": "如果苏轼活在今天高考失利或被否定的情境里，他的「旷达」会不会变成「摆烂」？这两者边界在哪？",
+      "sample_answer": "旷达不是放弃努力，而是在尽人事之后仍能安顿内心。摆烂是停止行动；旷达是行动与自我和解并存。",
+      "understanding_delta": {
+        "gap": "想把旷达与当代压力对话",
+        "from": "未解决",
+        "to": "深化理解",
+        "note": "已能做价值辨析"
+      }
+    }
+  ],
+  "evaluation": {
+    "total_score": 86,
+    "scores": [
+      { "id": "objectives", "name": "教学目标", "score": 18, "max": 20 },
+      { "id": "design", "name": "教学设计", "score": 17, "max": 20 },
+      { "id": "interaction", "name": "课堂互动", "score": 17, "max": 20 },
+      { "id": "expression", "name": "知识表达", "score": 17, "max": 20 },
+      { "id": "formative", "name": "形成性评价", "score": 17, "max": 20 }
+    ],
+    "strengths": [
+      "主问题清晰，能统领整堂课",
+      "支架设计降低文言门槛",
+      "出口票提供学习证据"
+    ],
+    "issues": [
+      "对学困生的字词支持仍可再前置2分钟",
+      "优秀生的迁移问题可预留更明确的展示时间"
+    ],
+    "suggestions": [
+      "导入后增加30秒「背景便签」帮助阿哲类学生",
+      "辩论后请小林用自己的话复述「变与不变」以巩固部分理解"
+    ]
+  }
+}

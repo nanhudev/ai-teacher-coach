@@ -1,0 +1,189 @@
+{
+  "id": "fractions",
+  "label": "小学数学 · 分数的初步认识",
+  "subject": "数学",
+  "grade": "小学",
+  "period_count": 1,
+  "knowledge_points": ["平均分", "分数含义", "读写"],
+  "role_default": "k12",
+  "director": {
+    "course": "分数的初步认识",
+    "subject": "数学",
+    "grade": "小学",
+    "course_type": "概念启蒙课",
+    "recommended_theories": [
+      { "name": "建构主义", "reason": "用分月饼/折纸等操作让学生自己发现「几分之几」" },
+      { "name": "支架式教学", "reason": "从实物到图示再到符号逐步抽象" },
+      { "name": "行为主义", "reason": "对正确读写给予即时肯定与练习" }
+    ],
+    "teaching_strategy": [
+      { "name": "操作探究", "reason": "小学概念课必须动手" },
+      { "name": "支架式教学", "reason": "防止过早符号化" }
+    ],
+    "learning_objectives": [
+      "理解「平均分」是分数的前提",
+      "会用分数表示「一份」",
+      "能读写简单分数"
+    ],
+    "student_difficulties": [
+      "把「随便分开」当成平均分",
+      "分母分子颠倒",
+      "认为分数就是「比较小的数」"
+    ],
+    "teaching_mode": "操作—表征—抽象",
+    "stage_template": "math",
+    "stages": [
+      { "stage": "情境引入", "intent": "分月饼冲突", "theory": "建构主义" },
+      { "stage": "概念形成", "intent": "平均分与一份", "theory": "支架式教学" },
+      { "stage": "例题示范", "intent": "图示到符号", "theory": "认知主义" },
+      { "stage": "变式训练", "intent": "判断与读写", "theory": "行为主义" },
+      { "stage": "总结反思", "intent": "三句话总结", "theory": "认知主义" }
+    ],
+    "downstream": { "lesson": true, "ppt": true, "simulation": true, "evaluation": true }
+  },
+  "lesson": {
+    "title": "分数的初步认识",
+    "objectives": ["理解平均分", "表示一份", "读写分数"],
+    "key_points": ["平均分", "分数各部分含义"],
+    "difficulty_points": ["平均分判断", "读写顺序"],
+    "process": [
+      {
+        "stage": "情境引入（5min）",
+        "teacher_action": "两人对半分月饼，制造「怎么才公平」",
+        "student_action": "讨论怎样分才公平",
+        "theory": "建构主义",
+        "time": "5分钟"
+      },
+      {
+        "stage": "概念形成（15min）",
+        "teacher_action": "折纸操作：把正方形平均折成2/4份",
+        "student_action": "动手折并涂色表示一份",
+        "theory": "支架式教学",
+        "time": "15分钟"
+      },
+      {
+        "stage": "符号学习（10min）",
+        "teacher_action": "从涂色图引出 1/2、1/4 读写",
+        "student_action": "跟读、书空、同桌互查",
+        "theory": "认知主义",
+        "time": "10分钟"
+      },
+      {
+        "stage": "练习反馈（8min）",
+        "teacher_action": "判断哪些是平均分；写出分数",
+        "student_action": "完成练习，展示纠错",
+        "theory": "行为主义",
+        "time": "8分钟"
+      },
+      {
+        "stage": "总结（2min）",
+        "teacher_action": "带读三句话：平均分、一份、读写",
+        "student_action": "齐说出口诀",
+        "theory": "行为主义",
+        "time": "2分钟"
+      }
+    ],
+    "activities": ["分月饼讨论", "折纸涂色", "书空读写", "判断练习"],
+    "assessment": ["课堂观察操作", "练习正确率"]
+  },
+  "objective_alignment": {
+    "score": 92,
+    "summary": "操作活动充分支撑「平均分」与「一份」目标；读写有专门环节。",
+    "checks": [
+      { "objective": "理解平均分", "supported_by": ["分月饼", "折纸"], "aligned": true },
+      { "objective": "表示一份", "supported_by": ["涂色"], "aligned": true },
+      { "objective": "读写分数", "supported_by": ["书空互查", "练习"], "aligned": true }
+    ],
+    "issues": [],
+    "suggestions": ["可增加一组「不平均分」反例强化概念边界"]
+  },
+  "ppt": {
+    "template_id": "lively",
+    "template_name": "活力课堂风",
+    "slides": [
+      { "id": 1, "layout": "title", "title": "分数的初步认识", "subtitle": "怎样分才公平？", "bullets": [] },
+      { "id": 2, "layout": "question", "title": "想一想", "bullets": ["两个人分一个月饼，怎样最公平？"] },
+      { "id": 3, "layout": "objective", "title": "今天学会", "bullets": ["平均分", "一份", "会读写"] },
+      { "id": 4, "layout": "two_column", "title": "看图说话", "left": ["平均分成2份"], "right": ["其中1份是1/2"], "bullets": [] },
+      { "id": 5, "layout": "exit_ticket", "title": "小检测", "bullets": ["圈出平均分", "写出涂色部分的分数"] }
+    ]
+  },
+  "before_after": {
+    "before": {
+      "title": "旧课件问题",
+      "issues": [
+        { "label": "过早符号化", "detail": "直接教读写，缺操作" },
+        { "label": "缺少反例", "detail": "学生分不清平均分" }
+      ]
+    },
+    "after": {
+      "title": "优化后",
+      "improvements": [
+        { "label": "动手折纸", "detail": "先意义后符号" },
+        { "label": "即时反馈", "detail": "互查读写 + 小检测" }
+      ]
+    }
+  },
+  "personas": [
+    {
+      "id": "f1",
+      "name": "豆豆",
+      "level": "struggling",
+      "personality": "分东西时常不平均",
+      "knowledge_gap": ["平均分概念不清"],
+      "question_style": "问可不可以这样分",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    },
+    {
+      "id": "f2",
+      "name": "圆圆",
+      "level": "medium",
+      "personality": "会说不会写",
+      "knowledge_gap": ["分子分母颠倒"],
+      "question_style": "确认读写顺序",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    },
+    {
+      "id": "f3",
+      "name": "乐乐",
+      "level": "excellent",
+      "personality": "爱举一反三",
+      "knowledge_gap": ["想认识更多分数"],
+      "question_style": "迁移提问",
+      "memory": { "unresolved": [], "resolved": [], "understanding": {} }
+    }
+  ],
+  "simulation_turns": [
+    {
+      "persona_id": "f1",
+      "question": "老师，我把月饼掰成一大一小，也算分成两份吗？为什么不行？",
+      "sample_answer": "分成两份可以，但不公平。分数说的「几分之几」一定要先平均分。",
+      "understanding_delta": { "gap": "平均分概念不清", "from": "未解决", "to": "部分理解", "note": "接受「要一样大」" }
+    },
+    {
+      "persona_id": "f2",
+      "question": "1/2 是先读上面还是下面？我老写反。",
+      "sample_answer": "先看平均分成几份（分母），再看取了几份（分子）。读作「二分之一」。",
+      "understanding_delta": { "gap": "分子分母颠倒", "from": "未解决", "to": "部分理解", "note": "口诀记住，书写仍需练" }
+    },
+    {
+      "persona_id": "f3",
+      "question": "如果平均分成8份取1份，是不是就是1/8？那取3份呢？",
+      "sample_answer": "对，取1份是1/8，取3份是3/8。你已经在扩展分数意义了。",
+      "understanding_delta": { "gap": "想认识更多分数", "from": "未解决", "to": "深化理解", "note": "能迁移到分子不为1" }
+    }
+  ],
+  "evaluation": {
+    "total_score": 89,
+    "scores": [
+      { "id": "objectives", "name": "教学目标", "score": 19, "max": 20 },
+      { "id": "design", "name": "教学设计", "score": 18, "max": 20 },
+      { "id": "interaction", "name": "课堂互动", "score": 18, "max": 20 },
+      { "id": "expression", "name": "知识表达", "score": 17, "max": 20 },
+      { "id": "formative", "name": "形成性评价", "score": 17, "max": 20 }
+    ],
+    "strengths": ["操作充分", "概念边界清晰"],
+    "issues": ["反例展示可再加强"],
+    "suggestions": ["增加一组不平均分图片供判断"]
+  }
+}

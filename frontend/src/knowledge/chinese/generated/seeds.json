@@ -1,0 +1,649 @@
+[
+  {
+    "id": "师说",
+    "title": "师说",
+    "author": "韩愈",
+    "dynasty": "唐",
+    "unit": "必修上",
+    "kind": "classical",
+    "ppt_style": "classical",
+    "source": "ai_generated",
+    "confidence": 0.88,
+    "excerpts": [
+      {
+        "label": "开宗",
+        "text": "古之学者必有师。师者，所以传道受业解惑也。"
+      }
+    ],
+    "background": "中唐韩愈倡导古文运动，针对耻于从师之风作《师说》。",
+    "background_bullets": [
+      "中唐",
+      "古文运动",
+      "传道受业解惑"
+    ],
+    "core_questions": [
+      "师的本质职能是什么？",
+      "如何批判耻学于师？",
+      "道之所存师之所存如何理解？"
+    ],
+    "classroom_questions": [
+      "今天还需要师吗？",
+      "为何士大夫耻于从师？",
+      "择师标准是地位还是道？"
+    ],
+    "annotation": {
+      "实词": [
+        {
+          "word": "受",
+          "meaning": "通授",
+          "example": "传道受业解惑"
+        },
+        {
+          "word": "耻",
+          "meaning": "以…为耻",
+          "example": "不耻相师"
+        }
+      ],
+      "虚词": [
+        {
+          "word": "所以",
+          "usage": "用来…的",
+          "example": "所以传道受业解惑也"
+        }
+      ],
+      "句式": [
+        {
+          "type": "判断句",
+          "example": "师者，所以传道受业解惑也",
+          "note": "者也"
+        }
+      ]
+    },
+    "sentence_analysis": [
+      {
+        "sentence": "师者，所以传道受业解惑也。",
+        "translation": "老师是用来传授道理、教授学业、解答疑惑的人。",
+        "meaning": "中心句"
+      }
+    ],
+    "paragraph_analysis": [
+      {
+        "paragraph": 1,
+        "content": "古之学者必有师。师者，所以传道受业解惑也。",
+        "analysis": [
+          "开宗明义"
+        ],
+        "teaching_value": "立论"
+      }
+    ],
+    "key_sentences": [
+      {
+        "text": "师者，所以传道受业解惑也。",
+        "technique": "下定义",
+        "effect": "明确中心论点"
+      },
+      {
+        "text": "道之所存，师之所存也。",
+        "technique": "议论",
+        "effect": "择师标准"
+      }
+    ],
+    "stacked_words": [
+      {
+        "word": "受",
+        "effect": "通授"
+      },
+      {
+        "word": "耻",
+        "effect": "意动"
+      }
+    ],
+    "scenery_layers": [
+      "立论",
+      "批判",
+      "标准",
+      "收束"
+    ],
+    "emotion_arc": [
+      {
+        "stage": "立",
+        "detail": "必有师"
+      },
+      {
+        "stage": "破",
+        "detail": "耻学于师"
+      },
+      {
+        "stage": "立",
+        "detail": "道存师存"
+      }
+    ],
+    "literary_features": [
+      "对比论证",
+      "下定义"
+    ],
+    "structure": [
+      {
+        "part": "立论",
+        "content": "必有师"
+      },
+      {
+        "part": "批判",
+        "content": "耻学"
+      },
+      {
+        "part": "标准",
+        "content": "道存师存"
+      }
+    ],
+    "exam_points": [
+      "通假受",
+      "意动耻",
+      "判断句",
+      "对比论证"
+    ],
+    "gaokao_method": [
+      {
+        "label": "实词",
+        "detail": "受耻道"
+      },
+      {
+        "label": "论点",
+        "detail": "中心句"
+      },
+      {
+        "label": "论证",
+        "detail": "对比"
+      }
+    ],
+    "practice_item": {
+      "prompt": "翻译师者句",
+      "hint": "判断句"
+    },
+    "knowledge_tree": [
+      "传道受业解惑",
+      "道存师存",
+      "对比"
+    ],
+    "common_questions": [
+      "概括中心论点。"
+    ],
+    "teaching_difficulties": [
+      "把道窄化为考试知识"
+    ],
+    "visual_prompts": [
+      "唐代书斋，宣纸墨色，16:9"
+    ]
+  },
+  {
+    "id": "劝学",
+    "title": "劝学",
+    "author": "苘子",
+    "dynasty": "战国",
+    "unit": "必修上",
+    "kind": "classical",
+    "ppt_style": "classical",
+    "source": "ai_generated",
+    "confidence": 0.87,
+    "excerpts": [
+      {
+        "label": "中心",
+        "text": "君子曰：学不可以已。"
+      }
+    ],
+    "background": "《苘子·劝学》强调学习与积累。",
+    "background_bullets": [
+      "苘子",
+      "学不可以已",
+      "积累"
+    ],
+    "core_questions": [
+      "学不可以已如何统领？",
+      "比喻如何论证积累？"
+    ],
+    "classroom_questions": [
+      "学习真能停吗？",
+      "跫步与千里的关系？"
+    ],
+    "annotation": {
+      "实词": [
+        {
+          "word": "已",
+          "meaning": "停止",
+          "example": "学不可以已"
+        },
+        {
+          "word": "跫步",
+          "meaning": "半步",
+          "example": "不积跫步"
+        }
+      ],
+      "虚词": [
+        {
+          "word": "故",
+          "usage": "所以",
+          "example": "故不积跫步"
+        }
+      ]
+    },
+    "sentence_analysis": [
+      {
+        "sentence": "故不积跫步，无以至千里。",
+        "translation": "不一步步积累，就无法到达千里。",
+        "meaning": "比喻论证积累"
+      }
+    ],
+    "paragraph_analysis": [
+      {
+        "paragraph": 1,
+        "content": "君子曰：学不可以已。",
+        "analysis": [
+          "中心论点"
+        ],
+        "teaching_value": "开篇立论"
+      }
+    ],
+    "key_sentences": [
+      {
+        "text": "学不可以已。",
+        "technique": "立论",
+        "effect": "全文总纲"
+      },
+      {
+        "text": "不积跫步，无以至千里。",
+        "technique": "比喻",
+        "effect": "强调积累"
+      }
+    ],
+    "stacked_words": [
+      {
+        "word": "已",
+        "effect": "停止"
+      },
+      {
+        "word": "跫步",
+        "effect": "积累"
+      }
+    ],
+    "scenery_layers": [
+      "立论",
+      "意义",
+      "方法"
+    ],
+    "emotion_arc": [
+      {
+        "stage": "立",
+        "detail": "学不可以已"
+      },
+      {
+        "stage": "证",
+        "detail": "比喻"
+      }
+    ],
+    "literary_features": [
+      "比喻论证",
+      "排比"
+    ],
+    "structure": [
+      {
+        "part": "论点",
+        "content": "学不可以已"
+      },
+      {
+        "part": "方法",
+        "content": "积累专一"
+      }
+    ],
+    "exam_points": [
+      "中心论点",
+      "比喻论证",
+      "实词已"
+    ],
+    "gaokao_method": [
+      {
+        "label": "论点",
+        "detail": "首句"
+      },
+      {
+        "label": "论证",
+        "detail": "比喻"
+      }
+    ],
+    "practice_item": {
+      "prompt": "分析跫步句",
+      "hint": "比喻+积累"
+    },
+    "knowledge_tree": [
+      "学不可以已",
+      "比喻",
+      "积累"
+    ],
+    "common_questions": [
+      "概括论点。"
+    ],
+    "teaching_difficulties": [
+      "只背名句"
+    ],
+    "visual_prompts": [
+      "竹简案头，16:9"
+    ]
+  },
+  {
+    "id": "岳阳楼记",
+    "title": "岳阳楼记",
+    "author": "范仲淹",
+    "dynasty": "宋",
+    "unit": "必修上",
+    "kind": "classical",
+    "ppt_style": "classical",
+    "source": "ai_generated",
+    "confidence": 0.88,
+    "excerpts": [
+      {
+        "label": "主旨",
+        "text": "先天下之忧而忧，后天下之乐而乐。"
+      }
+    ],
+    "background": "庆历年间范仲淹借岳阳楼抒政治家裟怀。",
+    "background_bullets": [
+      "庆历",
+      "迁客骚人",
+      "忧乐天下"
+    ],
+    "core_questions": [
+      "览物之情为何有异？",
+      "如何理解先忧后乐？"
+    ],
+    "classroom_questions": [
+      "阴晴不同心情为何不一？",
+      "先忧后乐今天还能成立吗？"
+    ],
+    "annotation": {
+      "实词": [
+        {
+          "word": "谪",
+          "meaning": "赫官",
+          "example": "谪守巴陵郡"
+        },
+        {
+          "word": "属",
+          "meaning": "通嘱",
+          "example": "属予作文"
+        }
+      ],
+      "虚词": [
+        {
+          "word": "夫",
+          "usage": "发语词",
+          "example": "嗟夫"
+        }
+      ]
+    },
+    "sentence_analysis": [
+      {
+        "sentence": "先天下之忧而忧，后天下之乐而乐。",
+        "translation": "在天下人忧愁之前先忧愁，在天下人快乐之后才快乐。",
+        "meaning": "主旨句"
+      }
+    ],
+    "paragraph_analysis": [
+      {
+        "paragraph": 5,
+        "content": "先天下之忧而忧，后天下之乐而乐。",
+        "analysis": [
+          "主旨"
+        ],
+        "teaching_value": "卒章显志"
+      }
+    ],
+    "key_sentences": [
+      {
+        "text": "先天下之忧而忧，后天下之乐而乐。",
+        "technique": "对偶议论",
+        "effect": "点明主旨"
+      }
+    ],
+    "stacked_words": [
+      {
+        "word": "谪",
+        "effect": "赫谪"
+      },
+      {
+        "word": "忧乐",
+        "effect": "主旨"
+      }
+    ],
+    "scenery_layers": [
+      "缘起",
+      "写景",
+      "议论"
+    ],
+    "emotion_arc": [
+      {
+        "stage": "记事",
+        "detail": "修楼"
+      },
+      {
+        "stage": "写景",
+        "detail": "阴晴"
+      },
+      {
+        "stage": "说理",
+        "detail": "先忧后乐"
+      }
+    ],
+    "literary_features": [
+      "借景抒情",
+      "对比",
+      "卒章显志"
+    ],
+    "structure": [
+      {
+        "part": "叙事",
+        "content": "缘起"
+      },
+      {
+        "part": "写景",
+        "content": "阴晴"
+      },
+      {
+        "part": "议论",
+        "content": "古仁人"
+      }
+    ],
+    "exam_points": [
+      "主旨句",
+      "对比",
+      "通假属"
+    ],
+    "gaokao_method": [
+      {
+        "label": "结构",
+        "detail": "叙事写景议论"
+      },
+      {
+        "label": "主旨",
+        "detail": "先忧后乐"
+      }
+    ],
+    "practice_item": {
+      "prompt": "赏析先忧后乐",
+      "hint": "卒章显志"
+    },
+    "knowledge_tree": [
+      "览物之情",
+      "先忧后乐"
+    ],
+    "common_questions": [
+      "概括主旨。"
+    ],
+    "teaching_difficulties": [
+      "只记名句"
+    ],
+    "visual_prompts": [
+      "洞庭岳阳楼，水墨，16:9"
+    ]
+  },
+  {
+    "id": "滕王阁序",
+    "title": "滕王阁序",
+    "author": "王勃",
+    "dynasty": "唐",
+    "unit": "选择性必修",
+    "kind": "classical",
+    "ppt_style": "competition",
+    "source": "ai_generated",
+    "confidence": 0.86,
+    "excerpts": [
+      {
+        "label": "写景",
+        "text": "落霞与孤鹜齐飞，秋水共长天一色。"
+      }
+    ],
+    "background": "王勃途经洪州宴上作序，写景抒情。",
+    "background_bullets": [
+      "初唐",
+      "洪州",
+      "写景名句"
+    ],
+    "core_questions": [
+      "写景名句如何营造境界？",
+      "情感如何由乐转悲再振起？"
+    ],
+    "classroom_questions": [
+      "为何落霞孤鹜成千古名句？",
+      "不坠青云之志意味何在？"
+    ],
+    "annotation": {
+      "实词": [
+        {
+          "word": "鹜",
+          "meaning": "野鸭",
+          "example": "孤鹜"
+        },
+        {
+          "word": "舛",
+          "meaning": "不顺",
+          "example": "命途多舛"
+        }
+      ],
+      "虚词": [
+        {
+          "word": "于",
+          "usage": "介词",
+          "example": "于上路"
+        }
+      ]
+    },
+    "sentence_analysis": [
+      {
+        "sentence": "落霞与孤鹜齐飞，秋水共长天一色。",
+        "translation": "落霞与孤独的野鸭一起飞翔，秋水与长天连成一色。",
+        "meaning": "千古写景"
+      }
+    ],
+    "paragraph_analysis": [
+      {
+        "paragraph": 3,
+        "content": "落霞与孤鹜齐飞，秋水共长天一色。",
+        "analysis": [
+          "对偶"
+        ],
+        "teaching_value": "景语中心"
+      }
+    ],
+    "key_sentences": [
+      {
+        "text": "落霞与孤鹜齐飞，秋水共长天一色。",
+        "technique": "对偶写景",
+        "effect": "境界壮阔"
+      },
+      {
+        "text": "穷且益坚，不坠青云之志。",
+        "technique": "对偶议论",
+        "effect": "振起志气"
+      }
+    ],
+    "stacked_words": [
+      {
+        "word": "鹜",
+        "effect": "孤鹜"
+      },
+      {
+        "word": "青云",
+        "effect": "志向"
+      }
+    ],
+    "scenery_layers": [
+      "地势",
+      "宴会",
+      "秋景",
+      "抒情"
+    ],
+    "emotion_arc": [
+      {
+        "stage": "乐",
+        "detail": "盛宴"
+      },
+      {
+        "stage": "悲",
+        "detail": "命运"
+      },
+      {
+        "stage": "壮",
+        "detail": "青云之志"
+      }
+    ],
+    "literary_features": [
+      "骈文对偶",
+      "写景抒情"
+    ],
+    "structure": [
+      {
+        "part": "叙事",
+        "content": "盛会"
+      },
+      {
+        "part": "写景",
+        "content": "秋水长天"
+      },
+      {
+        "part": "抒情",
+        "content": "才志"
+      }
+    ],
+    "exam_points": [
+      "名句赏析",
+      "骈文",
+      "情感变化"
+    ],
+    "gaokao_method": [
+      {
+        "label": "写景",
+        "detail": "对偶意境"
+      },
+      {
+        "label": "情感",
+        "detail": "乐悲壮"
+      }
+    ],
+    "practice_item": {
+      "prompt": "赏析落霞句",
+      "hint": "对偶动静"
+    },
+    "knowledge_tree": [
+      "骈文",
+      "写景名句",
+      "青云之志"
+    ],
+    "common_questions": [
+      "赏析写景名句。"
+    ],
+    "teaching_difficulties": [
+      "骈文障碍"
+    ],
+    "visual_prompts": [
+      "滕王阁秋水长天，16:9"
+    ]
+  }
+]

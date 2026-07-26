@@ -1,0 +1,29 @@
+{
+  "lesson_type": "文学鉴赏",
+  "required_sections": [
+    "cover",
+    "author_context",
+    "main_question",
+    "text_excerpt",
+    "keyword_analysis",
+    "technique_analysis",
+    "emotion_arc",
+    "classroom_task",
+    "gaokao_transfer",
+    "homework"
+  ],
+  "section_goals": {
+    "cover": "建立公开课情境，抛出本课主问题",
+    "author_context": "只给读懂文本的必要背景，禁止百科堆砌",
+    "main_question": "用真问题驱动整堂课",
+    "text_excerpt": "原文上台，学生先读后析",
+    "keyword_analysis": "炼字/叠词服务画面与情感",
+    "technique_analysis": "手法必须绑原文证据",
+    "emotion_arc": "看见情感变化而非贴标签",
+    "classroom_task": "可观察的学生活动",
+    "gaokao_transfer": "可迁移的阅读与表达路径",
+    "homework": "分层巩固，服务素养"
+  },
+  "avoid": ["大段文字", "百科介绍", "没有文本依据", "教案目录式提纲", "英文标题"],
+  "question_chain_preferred": true
+}

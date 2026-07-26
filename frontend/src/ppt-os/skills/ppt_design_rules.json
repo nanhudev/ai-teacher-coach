@@ -1,0 +1,36 @@
+{
+  "version": "ppt-os-3",
+  "rules": {
+    "title_max_chars": 12,
+    "body_max_chars": 60,
+    "max_body_lines": 4,
+    "max_bullets": 2,
+    "forbid_latin_titles": true,
+    "forbid_encyclopedia_dump": true,
+    "forbid_bullet_dump": true,
+    "require_slide_goal": true,
+    "require_visual_narrative": true,
+    "min_quality_score": 90,
+    "ideal_slide_count": [9, 14]
+  },
+  "templates": {
+    "ink_literature": {
+      "id": "sage",
+      "name": "中国文学·水墨公开课",
+      "vibe": ["宣纸", "留白", "墨色", "古典"],
+      "for": ["classical", "poetry", "modern_prose"]
+    },
+    "modern_academic": {
+      "id": "coral",
+      "name": "现代学术课堂",
+      "vibe": ["白底", "杂志感", "极简"],
+      "for": ["modern_prose", "narrative"]
+    },
+    "inquiry_showcase": {
+      "id": "noir",
+      "name": "探究课堂",
+      "vibe": ["大标题", "问题驱动", "卡片"],
+      "for": ["competition", "public_lesson"]
+    }
+  }
+}

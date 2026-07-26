@@ -1,0 +1,10 @@
+{
+  "total": 100,
+  "dimensions": [
+    { "id": "objectives", "name": "教学目标", "max": 20 },
+    { "id": "design", "name": "教学设计", "max": 20 },
+    { "id": "interaction", "name": "课堂互动", "max": 20 },
+    { "id": "expression", "name": "知识表达", "max": 20 },
+    { "id": "formative", "name": "形成性评价", "max": 20 }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "id": "chibi-fu",
+  "title": "赤壁赋",
+  "author": "苏轼",
+  "dynasty": "宋",
+  "unit": "必修上",
+  "kind": "classical",
+  "ppt_style": "classical",
+  "source": "verified",
+  "confidence": 1,
+  "excerpts": [
+    {
+      "label": "起兴·月夜泛舟",
+      "text": "壬戌之秋，七月既望，苏子与客泛舟游于赤壁之下。清风徐来，水波不兴。举酒属客，诵明月之诗，歌窍窍之章。"
+    },
+    {
+      "label": "主客问答·悲",
+      "text": "客曰：「……寄蜉蜊于天地，渺沧海之一粟。哀吾生之须膺，羡长江之无穷……」"
+    },
+    {
+      "label": "苏子答·旷达",
+      "text": "苏子曰：「……盖将自其变者而观之，则天地曾不能以一瞬；自其不变者而观之，则物与我皆无尽也……」"
+    }
+  ],
+  "background": "元丰五年（1082），苏轼赫居黄州。政治失意、人生困顿中，借赤壁夜游完成由悲到喜的精神自救，体现其儒释道交融的旷达。",
+  "background_bullets": [
+    "元丰五年",
+    "赫居黄州",
+    "月夜泛舟",
+    "由悲转旷达"
+  ],
+  "core_questions": [
+    "苏轼为何由乐转悲、又由悲转喜？",
+    "「变与不变」如何成为安顿自我的路径？",
+    "旷达是消极逃避，还是积极自我和解？"
+  ],
+  "classroom_questions": [
+    "如果人生陷入低谷，你会如何选择？苏轼呢？",
+    "客为何而悲？苏子如何回应？",
+    "「变与不变」是逃避现实，还是自我和解？"
+  ],
+  "annotation": {
+    "实词": [
+      {
+        "word": "属",
+        "meaning": "劝请、劝酒",
+        "example": "举酒属客"
+      },
+      {
+        "word": "既望",
+        "meaning": "农历十六日",
+        "example": "七月既望"
+      },
+      {
+        "word": "须膺",
+        "meaning": "片刻",
+        "example": "哀吾生之须膺"
+      },
+      {
+        "word": "蜉蜊",
+        "meaning": "朝生暮死的小虫，喻短暂",
+        "example": "寄蜉蜊于天地"
+      }
+    ],
+    "虚词": [
+      {
+        "word": "于",
+        "usage": "介词，在",
+        "example": "游于赤壁之下"
+      },
+      {
+        "word": "而",
+        "usage": "连词",
+        "example": "清风徐来"
+      }
+    ],
+    "句式": [
+      {
+        "type": "宾语前置",
+        "example": "何为其然也",
+        "note": "疑问代词作宾语前置"
+      }
+    ]
+  },
+  "sentence_analysis": [
+    {
+      "sentence": "自其不变者而观之，则物与我皆无尽也。",
+      "translation": "从不变的一面看，万物与我都是无穷无尽的。",
+      "meaning": "以水月喻理，完成由悲到旷达的关键转折。"
+    }
+  ],
+  "paragraph_analysis": [
+    {
+      "paragraph": 1,
+      "content": "清风徐来，水波不兴。举酒属客。",
+      "analysis": [
+        "写景",
+        "起兴"
+      ],
+      "teaching_value": "乐段：风月同天"
+    },
+    {
+      "paragraph": 3,
+      "content": "自其不变者而观之，则物与我皆无尽也。",
+      "analysis": [
+        "说理",
+        "水月设喻"
+      ],
+      "teaching_value": "喜段关键句"
+    }
+  ],
+  "key_sentences": [
+    {
+      "text": "寄蜉蜊于天地，渺沧海之一粟。",
+      "technique": "比喻",
+      "effect": "写人生短暂渺小"
+    },
+    {
+      "text": "自其不变者而观之，则物与我皆无尽也。",
+      "technique": "对比说理",
+      "effect": "以水月之理安顿自我"
+    }
+  ],
+  "stacked_words": [
+    {
+      "word": "属",
+      "effect": "劝请"
+    },
+    {
+      "word": "须膺",
+      "effect": "片刻"
+    },
+    {
+      "word": "蜉蜊",
+      "effect": "朝生暮死之喻"
+    }
+  ],
+  "scenery_layers": [
+    "清风水波",
+    "月白风清",
+    "箫声呜咽",
+    "水月无尽"
+  ],
+  "emotion_arc": [
+    {
+      "stage": "乐",
+      "detail": "泛舟同乐"
+    },
+    {
+      "stage": "悲",
+      "detail": "客叹须膺"
+    },
+    {
+      "stage": "喜",
+      "detail": "变与不变"
+    }
+  ],
+  "literary_features": [
+    "主客问答",
+    "写景—抒情—说理",
+    "水月设喻"
+  ],
+  "structure": [
+    {
+      "part": "乐",
+      "content": "月夜泛舟"
+    },
+    {
+      "part": "悲",
+      "content": "客叹须膺"
+    },
+    {
+      "part": "喜",
+      "content": "变与不变"
+    }
+  ],
+  "exam_points": [
+    "文言实词",
+    "情感变化：乐—悲—喜",
+    "变与不变",
+    "景情理交融"
+  ],
+  "gaokao_method": [
+    {
+      "label": "实词",
+      "detail": "属、须膺、蜉蜊"
+    },
+    {
+      "label": "情感",
+      "detail": "乐—悲—喜"
+    },
+    {
+      "label": "哲理",
+      "detail": "变与不变"
+    }
+  ],
+  "practice_item": {
+    "prompt": "翻译并赏析：「自其不变者而观之，则物与我皆无尽也。」",
+    "hint": "先译句，再点旷达"
+  },
+  "knowledge_tree": [
+    "景情理",
+    "主客问答",
+    "变与不变",
+    "旷达"
+  ],
+  "common_questions": [
+    "概括本文情感变化。",
+    "如何理解苏轼的旷达？"
+  ],
+  "teaching_difficulties": [
+    "文言障碍",
+    "变与不变抽象",
+    "把旷达误读为消极"
+  ],
+  "visual_prompts": [
+    "黄州赤壁月夜江面，水墨写意，留白，16:9"
+  ]
+}

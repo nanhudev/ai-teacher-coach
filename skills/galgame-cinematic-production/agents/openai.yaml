@@ -1,0 +1,4 @@
+interface:
+  display_name: "Galgame Cinematic Production"
+  short_description: "Build and verify Godot plus Blender visual novel cinematics."
+  default_prompt: "Use $galgame-cinematic-production to build a standalone cinematic sequence without replacing the main game flow."

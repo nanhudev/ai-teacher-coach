@@ -4,6 +4,7 @@ import { ALL_TEMPLATE_IDS, TEMPLATE_META, normalizeTemplateId } from './types'
 import { THEMES } from './themes'
 import { renderSlide } from './slides'
 import { slideTypeLabel } from '../../chinese/displayLabels'
+import { TEMPLATE_PROFILES } from './templateProfiles'
 
 type Props = {
   ppt: PptDesign
@@ -21,6 +22,7 @@ export function PptStudio({ ppt, onTemplateChange, onDownload, downloading }: Pr
   const slide = slides[idx]
   const score = ppt.design_score
   const thumbTheme = useMemo(() => theme, [theme])
+  const profile = templateId in TEMPLATE_PROFILES ? TEMPLATE_PROFILES[templateId as keyof typeof TEMPLATE_PROFILES] : undefined
 
   useEffect(() => {
     setAnimKey((k) => k + 1)
@@ -72,6 +74,7 @@ export function PptStudio({ ppt, onTemplateChange, onDownload, downloading }: Pr
               {slides.length} 页
               {ppt.total_minutes ? ` · ${ppt.total_minutes}min` : ''} · {TEMPLATE_META[templateId].vibe}
             </p>
+            {profile && <p className="mt-2 max-w-2xl text-xs text-slate-600">{profile.promise}</p>}
           </div>
           {onDownload && (
             <button

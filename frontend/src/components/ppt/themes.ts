@@ -141,4 +141,13 @@ export const THEMES: Record<PptTemplateId, ThemeTokens> = {
     chip: '#3F6F5C',
     mesh: 'radial-gradient(650px 300px at 90% 15%, rgba(63,111,92,0.08), transparent)',
   },
+  doubao_story: {
+    id: 'doubao_story', bg: 'linear-gradient(135deg,#10251E,#284B3D)', fg: '#FFF8E8', muted: '#D5C9AD', accent: '#D5AE6E', accentSoft: 'rgba(213,174,110,.16)', panel: 'rgba(8,20,16,.42)', border: 'rgba(255,248,232,.16)', titleSize: 'clamp(2rem, 4vw, 3.5rem)', bodySize: 'clamp(1.05rem, 1.5vw, 1.35rem)', radius: '0.25rem', shadow: '0 30px 90px rgba(0,0,0,.38)', fontDisplay: '"Noto Serif SC", "Songti SC", serif', chip: '#D5AE6E', mesh: 'radial-gradient(900px 430px at 85% 0%, rgba(213,174,110,.18), transparent)',
+  },
+  gamma_narrative: {
+    id: 'gamma_narrative', bg: 'linear-gradient(135deg,#F8F5EF,#E6EEE8)', fg: '#17251F', muted: '#647067', accent: '#426B62', accentSoft: 'rgba(66,107,98,.12)', panel: 'rgba(255,255,255,.62)', border: 'rgba(23,37,31,.09)', titleSize: 'clamp(1.9rem, 3.6vw, 3rem)', bodySize: 'clamp(1.05rem, 1.5vw, 1.35rem)', radius: '0.65rem', shadow: '0 22px 60px rgba(23,37,31,.09)', fontDisplay: '"Noto Serif SC", "Songti SC", serif', chip: '#426B62', mesh: 'radial-gradient(760px 360px at 90% 5%, rgba(174,196,181,.42), transparent)',
+  },
+  seminar_studio: {
+    id: 'seminar_studio', bg: 'linear-gradient(135deg,#0C1C2E,#173A4A)', fg: '#F2FAF7', muted: '#A6C5C0', accent: '#4DC2B6', accentSoft: 'rgba(77,194,182,.16)', panel: 'rgba(255,255,255,.07)', border: 'rgba(242,250,247,.14)', titleSize: 'clamp(1.85rem, 3.4vw, 2.9rem)', bodySize: 'clamp(1.05rem, 1.5vw, 1.35rem)', radius: '0.85rem', shadow: '0 28px 70px rgba(0,0,0,.36)', fontDisplay: '"DM Sans", "PingFang SC", sans-serif', chip: '#4DC2B6', mesh: 'radial-gradient(680px 330px at 90% 0%, rgba(77,194,182,.2), transparent)',
+  },
 }

@@ -8,6 +8,9 @@ export type PptTemplateId =
   | 'noir'
   | 'sage'
   | 'coral'
+  | 'doubao_story'
+  | 'gamma_narrative'
+  | 'seminar_studio'
 
 export type SlideType =
   | 'cover'
@@ -129,6 +132,24 @@ export const TEMPLATE_META: Record<
     positioning: '现代散文',
     vibe: '冷青 · 少卡片',
     swatch: 'linear-gradient(135deg,#F7FAF8,#3F6F5C)',
+  },
+  doubao_story: {
+    name: '豆包·沉浸叙事',
+    positioning: '语文 / 人文故事课',
+    vibe: '全幅场景 · 章节转场 · 留白引文',
+    swatch: 'linear-gradient(135deg,#12261F,#C8A36A)',
+  },
+  gamma_narrative: {
+    name: 'Gamma·杂志讲述',
+    positioning: '公开课 / 主题讲解',
+    vibe: '编辑式版面 · 图文节奏 · 观点先行',
+    swatch: 'linear-gradient(135deg,#F7F3EC,#426B62)',
+  },
+  seminar_studio: {
+    name: '研讨·课堂工作室',
+    positioning: '探究课 / 小组研讨',
+    vibe: '问题链 · 证据墙 · 任务收束',
+    swatch: 'linear-gradient(135deg,#102238,#4DC2B6)',
   },
 }
 

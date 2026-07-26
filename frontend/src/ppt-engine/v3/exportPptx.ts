@@ -15,6 +15,9 @@ const THEME: Record<
   noir: { bg: '0A0A0A', fg: 'FAFAFA', muted: 'A3A3A3', accent: '38BDF8', panel: '171717', name: 'Math Precision' },
   sage: { bg: 'F3EFE6', fg: '1C1917', muted: '78716C', accent: '9F1239', panel: 'FFFCF5', name: '宣纸文学' },
   coral: { bg: 'F7FAF8', fg: '1F2937', muted: '64748B', accent: '3F6F5C', panel: 'FFFFFF', name: '文学杂志' },
+  doubao_story: { bg: '10251E', fg: 'FFF8E8', muted: 'D5C9AD', accent: 'D5AE6E', panel: '183329', name: '豆包·沉浸叙事' },
+  gamma_narrative: { bg: 'F8F5EF', fg: '17251F', muted: '647067', accent: '426B62', panel: 'FFFFFF', name: 'Gamma·杂志讲述' },
+  seminar_studio: { bg: '0C1C2E', fg: 'F2FAF7', muted: 'A6C5C0', accent: '4DC2B6', panel: '173A4A', name: '研讨·课堂工作室' },
 }
 
 function hex(c: string) {

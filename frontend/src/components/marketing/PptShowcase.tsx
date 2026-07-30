@@ -38,7 +38,7 @@ export function PptShowcase({
   if (!slide) return null
 
   return (
-    <div className={className}>
+    <div className={`min-w-0 max-w-full overflow-hidden ${className}`}>
       <div
         className="aspect-[16/9] overflow-hidden rounded-sm shadow-[0_24px_60px_rgba(15,23,42,0.18)] ring-1 ring-black/10"
         style={{ background: theme.bg }}

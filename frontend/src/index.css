@@ -19,10 +19,12 @@ html,
 body,
 #root {
   min-height: 100%;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: var(--font-sans);
   color: var(--color-ink);
   background:
@@ -30,6 +32,34 @@ body {
     radial-gradient(900px 480px at 95% 5%, rgba(180, 83, 9, 0.12) 0%, transparent 48%),
     radial-gradient(700px 400px at 50% 100%, rgba(19, 69, 54, 0.08) 0%, transparent 60%),
     var(--color-paper);
+}
+
+p,
+li,
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+@media (max-width: 640px) {
+  body {
+    background:
+      radial-gradient(620px 320px at 8% -5%, rgba(31, 107, 85, 0.13), transparent 55%),
+      var(--color-paper);
+  }
 }
 
 .font-display {

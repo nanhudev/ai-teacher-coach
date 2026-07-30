@@ -18,8 +18,8 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen">
-      <header className="border-b border-ink/10 bg-card/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+      <header className="sticky top-0 z-40 border-b border-ink/10 bg-card/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-3 sm:gap-4 sm:px-4">
           <Link to="/" className="font-display text-lg tracking-wide text-ink">
             AI Teacher Coach
           </Link>
@@ -34,7 +34,7 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
               )}
             </p>
           )}
-          <div className="flex shrink-0 items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             {session && (
               <button
                 type="button"
@@ -44,10 +44,10 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
                 保存
               </button>
             )}
-            <Link to="/app/projects" className="text-sm text-ink-muted underline-offset-2 hover:underline">
-              我的课程
+            <Link to="/app/projects" className="text-xs text-ink-muted underline-offset-2 hover:underline sm:text-sm">
+              <span className="hidden sm:inline">我的课程</span><span className="sm:hidden">课程</span>
             </Link>
-            <Link to="/demo" className="text-sm text-leaf-deep underline-offset-4 hover:underline">
+            <Link to="/demo" className="text-xs text-leaf-deep underline-offset-4 hover:underline sm:text-sm">
               新建
             </Link>
           </div>
@@ -73,7 +73,7 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
           </nav>
         )}
       </header>
-      <main key={loc.pathname} className="sc-page-in mx-auto max-w-6xl px-4 py-8">
+      <main key={loc.pathname} className="sc-page-in mx-auto max-w-6xl px-3 py-5 sm:px-4 sm:py-8">
         {children}
       </main>
     </div>

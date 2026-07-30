@@ -34,13 +34,13 @@ export function PptStudio({ ppt, onTemplateChange, onDownload, downloading }: Pr
 
   return (
     <div className="grid gap-4 lg:grid-cols-[180px_minmax(0,1fr)_240px]">
-      <aside className="max-h-[72vh] space-y-2 overflow-auto pr-1">
+      <aside className="order-3 flex gap-2 overflow-x-auto pb-2 lg:order-1 lg:block lg:max-h-[72vh] lg:space-y-2 lg:overflow-y-auto lg:pr-1">
         {slides.map((s, i) => (
           <button
             key={s.id || i}
             type="button"
             onClick={() => setIdx(i)}
-            className={`group w-full rounded-2xl p-2 text-left transition ${
+            className={`group w-36 shrink-0 rounded-xl p-2 text-left transition lg:w-full lg:rounded-2xl ${
               i === idx
                 ? 'bg-white shadow-md ring-2 ring-sky-400/60'
                 : 'bg-white/60 ring-1 ring-black/5 hover:bg-white hover:shadow-sm'
@@ -61,7 +61,7 @@ export function PptStudio({ ppt, onTemplateChange, onDownload, downloading }: Pr
         ))}
       </aside>
 
-      <section className="min-w-0">
+      <section className="order-1 min-w-0 lg:order-2">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="text-xs font-medium tracking-wide text-stone-600">
@@ -90,7 +90,7 @@ export function PptStudio({ ppt, onTemplateChange, onDownload, downloading }: Pr
 
         <div
           key={animKey}
-          className="aspect-[16/9] overflow-hidden rounded-[1.5rem] ring-1 ring-black/5 animate-[fadeUp_.35s_ease]"
+          className="aspect-[16/9] overflow-hidden rounded-xl ring-1 ring-black/5 animate-[fadeUp_.35s_ease] sm:rounded-[1.5rem]"
           style={{ boxShadow: '0 30px 80px rgba(15,23,42,0.12)' }}
         >
           {renderSlide(slide, theme)}
@@ -128,10 +128,10 @@ export function PptStudio({ ppt, onTemplateChange, onDownload, downloading }: Pr
         </div>
       </section>
 
-      <aside className="space-y-3">
+      <aside className="order-2 space-y-3 lg:order-3">
         <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-black/5">
           <p className="text-xs font-medium text-slate-500">语文母版（{CHINESE_TEMPLATE_IDS.length}）</p>
-          <div className="mt-3 max-h-[42vh] space-y-2 overflow-auto pr-1">
+          <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:block lg:max-h-[42vh] lg:space-y-2 lg:overflow-auto lg:pr-1">
             {CHINESE_TEMPLATE_IDS.map((id) => {
               const meta = TEMPLATE_META[id]
               const active = templateId === id

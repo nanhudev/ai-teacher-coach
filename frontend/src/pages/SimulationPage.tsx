@@ -268,7 +268,7 @@ export function SimulationPage() {
 
       <div className="mt-6 grid gap-4 lg:grid-cols-[200px_minmax(0,1fr)_260px]">
         {/* 左：学生列表 */}
-        <aside className="space-y-2">
+        <aside className="order-2 flex gap-2 overflow-x-auto pb-2 lg:order-1 lg:block lg:space-y-2 lg:overflow-visible">
           <p className="px-1 text-xs font-medium text-ink-muted">虚拟学生</p>
           {personas.map((p) => {
             const slots = turns
@@ -281,7 +281,7 @@ export function SimulationPage() {
                 key={p.id}
                 type="button"
                 onClick={() => selectPersona(p.id)}
-                className={`w-full rounded-2xl p-3 text-left transition ${
+                className={`w-44 shrink-0 rounded-2xl p-3 text-left transition lg:w-full ${
                   active
                     ? 'bg-leaf text-white shadow-md ring-2 ring-leaf/40'
                     : 'bg-card ring-1 ring-ink/8 hover:ring-leaf/30'
@@ -307,7 +307,7 @@ export function SimulationPage() {
         {/* 中：问答 */}
         <section
           key={animKey}
-          className="rounded-2xl bg-card p-5 ring-1 ring-ink/8 animate-[fadeUp_.3s_ease]"
+          className="order-1 rounded-2xl bg-card p-4 ring-1 ring-ink/8 animate-[fadeUp_.3s_ease] sm:p-5 lg:order-2"
         >
           <div className="flex items-center gap-3">
             <Avatar name={persona.name} tone="leaf" large />
@@ -402,7 +402,7 @@ export function SimulationPage() {
         </section>
 
         {/* 右：即时反馈 */}
-        <aside className="space-y-3">
+        <aside className="order-3 space-y-3">
           <div className="rounded-2xl bg-card p-4 ring-1 ring-ink/8">
             <p className="text-xs font-medium text-ink-muted">AI 即时反馈</p>
             {done?.analysis ? (

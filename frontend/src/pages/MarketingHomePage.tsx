@@ -41,9 +41,11 @@ const TRUST = ['新课标核心素养', '学习任务群', '建构主义教学',
 export function MarketingHomePage() {
   return (
     <div className="mkt min-h-screen bg-[#F7F4EF] text-[#1a1a1a]">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
-        <p className="font-display text-lg tracking-wide text-[#1e3a5f]">AI Teacher Coach</p>
-        <nav className="flex items-center gap-5 text-sm text-[#475569]">
+      <header className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-5 sm:py-5">
+        <p className="shrink-0 font-display text-base tracking-wide text-[#1e3a5f] sm:text-lg">
+          <span className="sm:hidden">AI Teacher</span><span className="hidden sm:inline">AI Teacher Coach</span>
+        </p>
+        <nav className="flex min-w-0 items-center gap-2 whitespace-nowrap text-[11px] text-[#475569] sm:gap-5 sm:text-sm">
           <Link to="/review" className="hover:text-[#1e3a5f]">
             优化已有课
           </Link>
@@ -59,8 +61,8 @@ export function MarketingHomePage() {
       {/* Hero — brand first, one CTA, real PPT */}
       <section className="relative overflow-hidden border-b border-[#1e3a5f]/10">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_15%_-10%,rgba(30,58,95,0.09),transparent),radial-gradient(700px_400px_at_95%_30%,rgba(15,23,42,0.05),transparent)]" />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-10 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:pb-24 lg:pt-14">
-          <div>
+        <div className="relative mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)] gap-9 px-4 pb-14 pt-8 sm:px-5 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-12 lg:pb-24 lg:pt-14">
+          <div className="min-w-0">
             <p className="font-display text-[clamp(2.6rem,6vw,3.75rem)] leading-[1.08] tracking-tight text-[#1e3a5f]">
               AI Teacher Coach
             </p>
@@ -87,27 +89,27 @@ export function MarketingHomePage() {
               </li>
             </ul>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4 lg:mt-10">
               <Link
                 to="/demo?topic=赤壁赋"
-                className="inline-flex bg-[#1e3a5f] px-6 py-3.5 text-sm font-medium text-white transition hover:bg-[#152a45]"
+                className="inline-flex justify-center bg-[#1e3a5f] px-6 py-3.5 text-sm font-medium text-white transition hover:bg-[#152a45]"
               >
                 体验 AI 生成一节课
               </Link>
-              <Link to="/showcase" className="text-sm text-[#1e3a5f] underline-offset-4 hover:underline">
+              <Link to="/showcase" className="text-center text-sm text-[#1e3a5f] underline-offset-4 hover:underline">
                 先看《赤壁赋》完整案例
               </Link>
             </div>
           </div>
 
-          <div className="mkt-rise">
+          <div className="mkt-rise min-w-0 overflow-hidden">
             <PptShowcase topic="高中语文 必修上 赤壁赋" />
           </div>
         </div>
       </section>
 
       {/* 4 steps */}
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-5 sm:py-20">
         <p className="text-xs tracking-[0.22em] text-[#1e3a5f]">核心流程</p>
         <h2 className="font-display mt-2 text-3xl text-[#1a1a1a]">四步，备好一堂课</h2>
         <ol className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">

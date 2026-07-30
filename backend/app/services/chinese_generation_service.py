@@ -13,7 +13,7 @@ from typing import Any, Iterator
 from app.services.ai_service import ai_service
 from app.services.ppt_design_engine import compile_ppt, normalize_template_id
 
-PROMPT_VERSION = "chinese-fast-framework-v3"
+PROMPT_VERSION = "chinese-beta-brain-v4"
 _ARCHIVE_DIR = Path(__file__).resolve().parents[1] / "knowledge" / "generated_lessons"
 _CACHE_DIR = Path(
     os.getenv(
@@ -82,16 +82,22 @@ FAST_SYSTEM_PROMPT = """你是高中语文教材研究员。只输出紧凑 JSON
 围绕用户指定的唯一课文返回：
 {
   "text_pack":{
-    "title":"","author":"","volume":"","genre":"","theme":"","background":"",
+    "title":"","author":"","volume":"","genre":"","theme":"","background":"","course_category":"课文精读|写作课|群文阅读|整本书阅读|名著课|复习专题",
     "original_evidence":[{"label":"","quote":"","analysis":""}],
     "exam_points":[""],
     "key_words":[{"word":"","meaning":"","quote":""}],
     "structure":[{"part":"","content":"","evidence":""}],
-    "core_questions":[""]
+    "core_questions":[""],
+    "research_brief":{
+      "central_problem":"","academic_tensions":[""],"common_misreadings":[""],
+      "comparative_reading":[""],"curriculum_basis":[""],"advanced_insights":[""]
+    }
   }
 }
 硬性要求：original_evidence、exam_points、structure、core_questions 均至少3项；引用短而准确；
-背景必须包含作者、时代或写作语境；所有内容只能属于目标课文。不要生成通用教学套话。"""
+背景必须包含作者、时代或写作语境；所有内容只能属于目标课程。不要生成通用教学套话。
+若是写作课、群文阅读、名著课或复习专题，original_evidence 可使用范例句、任务材料或具体情节，
+但必须标明来源类型，不能伪造原文。research_brief 每项必须紧扣课程名称，至少给出2项。"""
 
 
 def _compact(value: Any) -> str:
@@ -246,11 +252,14 @@ def _assemble_course_framework(pack: dict[str, Any], grade: str) -> dict[str, An
     evidence = list(text.get("original_evidence") or [])
     exams = [str(x) for x in (text.get("exam_points") or [])]
     questions = [str(x) for x in (text.get("core_questions") or [])]
+    research = text.get("research_brief") or {}
+    category = str(text.get("course_category") or "课文精读")
     quotes = [str(x.get("quote") or "") for x in evidence if x.get("quote")]
+    material_word = "范例与任务材料" if category in ("写作课", "复习专题") else "文本证据"
     objectives = [
-        f"结合原文证据概括《{title}》的篇章思路",
-        f"赏析《{title}》关键语句的表达效果",
-        f"将《{title}》的具体考点迁移到新情境",
+        f"结合{material_word}概括《{title}》的核心方法",
+        f"分析《{title}》中关键材料的表达与思维路径",
+        f"将《{title}》的具体方法迁移到新情境",
     ]
     process = [
         {"stage": "情境导入", "teacher_action": f"呈现《{title}》核心情境并提出主问题", "student_action": "联系预习形成初步判断", "intent": "建立阅读期待", "theory": "问题驱动", "time": "4分钟"},
@@ -271,11 +280,25 @@ def _assemble_course_framework(pack: dict[str, Any], grade: str) -> dict[str, An
     ])
     pack["director"] = {
         "course": title, "subject": "语文", "grade": grade,
-        "course_type": str(text.get("genre") or "阅读鉴赏"),
+        "course_type": category,
         "learning_objectives": objectives,
-        "student_difficulties": exams[:2],
-        "teaching_strategy": [{"name": "原文证据链", "reason": "避免脱离文本的空泛讲解"}],
-        "recommended_theories": [{"name": "问题驱动学习", "reason": "以主问题统摄细读活动"}],
+        "student_difficulties": list(research.get("common_misreadings") or exams[:2]),
+        "teaching_strategy": [
+            {"name": "课程核心问题", "reason": str(research.get("central_problem") or (questions[0] if questions else f"如何深入理解{title}"))},
+            {"name": "证据链研读", "reason": f"围绕《{title}》的具体材料组织观察、解释与论证"},
+        ],
+        "recommended_theories": [
+            {"name": "学术争点", "reason": str(x)}
+            for x in (research.get("academic_tensions") or [])[:2]
+        ] or [{"name": "问题驱动学习", "reason": f"以《{title}》的核心矛盾统摄课堂"}],
+        "research_brief": {
+            "central_problem": research.get("central_problem") or (questions[0] if questions else ""),
+            "academic_tensions": list(research.get("academic_tensions") or []),
+            "common_misreadings": list(research.get("common_misreadings") or []),
+            "comparative_reading": list(research.get("comparative_reading") or []),
+            "curriculum_basis": list(research.get("curriculum_basis") or []),
+            "advanced_insights": list(research.get("advanced_insights") or []),
+        },
         "teaching_mode": "问题探究", "stage_template": "chinese-bound",
         "stages": [{"stage": x["stage"], "intent": x["intent"], "theory": x["theory"]} for x in process],
     }

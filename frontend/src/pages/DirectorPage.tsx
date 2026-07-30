@@ -110,6 +110,21 @@ export function DirectorPage() {
         </section>
       )}
 
+      {d.research_brief && (
+        <section className="mt-6 border-y border-ink/10 py-6">
+          <p className="text-xs tracking-[0.2em] text-leaf">本课教研核心</p>
+          <h2 className="font-display mt-2 text-2xl">
+            {d.research_brief.central_problem || `${d.course}的核心教学问题`}
+          </h2>
+          <div className="mt-5 grid gap-6 md:grid-cols-2">
+            <ResearchList title="学术争点" items={d.research_brief.academic_tensions} />
+            <ResearchList title="常见误读" items={d.research_brief.common_misreadings} />
+            <ResearchList title="比较阅读" items={d.research_brief.comparative_reading} />
+            <ResearchList title="进阶洞见" items={d.research_brief.advanced_insights} />
+          </div>
+        </section>
+      )}
+
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         <Panel title="推荐教学模式 / 策略（可改）">
           <ul className="space-y-3">
@@ -177,6 +192,18 @@ export function DirectorPage() {
       </Panel>
 
       <StepNav next="/demo/lesson" nextLabel="查看教案" />
+    </div>
+  )
+}
+
+function ResearchList({ title, items = [] }: { title: string; items?: string[] }) {
+  if (!items.length) return null
+  return (
+    <div>
+      <h3 className="font-medium text-ink">{title}</h3>
+      <ul className="mt-2 space-y-2 text-sm leading-relaxed text-ink-muted">
+        {items.slice(0, 3).map((item) => <li key={item}>— {item}</li>)}
+      </ul>
     </div>
   )
 }

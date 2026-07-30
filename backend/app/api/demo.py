@@ -370,6 +370,13 @@ def switch_ppt_template(case_id: str, body: TemplateSwitchRequest):
                 "interaction": s.get("interaction"),
                 "closing": s.get("closing"),
                 "minutes_hint": s.get("minutes_hint"),
+                "text_excerpt": s.get("text_excerpt"),
+                "text_evidence": s.get("text_evidence"),
+                "analysis": s.get("analysis"),
+                "analysis_cards": s.get("analysis_cards"),
+                "teacher_guidance": s.get("teacher_guidance"),
+                "student_task": s.get("student_task"),
+                "source_reference": s.get("source_reference"),
             }
             for s in (ppt.get("slides") or [])
         ],

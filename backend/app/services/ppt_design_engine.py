@@ -11,7 +11,8 @@ TEMPLATE_META = {
     "gamma": {"name": "Gamma Soft"},
     "noir": {"name": "Noir Editorial"},
     "sage": {"name": "国风·水墨卷"},
-    "coral": {"name": "Coral Warm"},
+    "coral": {"name": "文学·杂志青"},
+    "doubao_story": {"name": "叙事·电影书页"},
 }
 
 TYPE_TO_COMPONENT = {

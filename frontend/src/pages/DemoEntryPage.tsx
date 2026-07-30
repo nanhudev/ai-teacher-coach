@@ -7,6 +7,7 @@ import { generateCustomStream, type StreamEvent } from '../api/demo'
 import type { PipelineProgress } from '../pipeline/types'
 import { listProjects } from '../storage/localProjectStore'
 import type { LocalProjectSummary } from '../storage/storageTypes'
+import { track } from '../services/telemetry'
 import {
   CHINESE_VOLUMES,
   HIGH_SCHOOL_CHINESE_CATALOG,
@@ -119,6 +120,8 @@ export function DemoEntryPage() {
   async function generate() {
     const text = oneLiner.trim()
     if (!text) return
+    const startedAt = performance.now()
+    void track('generation_started', { path: '/demo', content_preview: text })
     setLoading(true)
     setError('')
     setLog([])
@@ -140,11 +143,20 @@ export function DemoEntryPage() {
       setSession(withId)
       setAnswered({})
       await persistNow('AI 初稿生成')
+      void track('generation_completed', {
+        path: '/demo', course_type: session.director.course_type,
+        content_preview: text, duration_ms: Math.round(performance.now() - startedAt),
+      })
       if (mode === 'ppt') nav('/demo/ppt')
       else if (mode === 'lesson') nav('/demo/lesson')
       else nav('/demo/director')
     } catch (e) {
-      setError(e instanceof Error ? e.message : '生成失败')
+      const message = e instanceof Error ? e.message : '生成失败'
+      setError(message)
+      void track('generation_failed', {
+        path: '/demo', content_preview: text, ok: false,
+        error_code: message.slice(0, 100), duration_ms: Math.round(performance.now() - startedAt),
+      })
     } finally {
       setLoading(false)
     }
@@ -245,7 +257,7 @@ export function DemoEntryPage() {
               value={oneLiner}
               onChange={(e) => setOneLiner(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && !loading && generate()}
-              placeholder="例如：高中语文 必修上 赤壁赋"
+              placeholder="输入课文或课程，例如：写作课《让议论文论证更深入》"
               className="min-w-0 flex-1 border-0 bg-transparent px-4 py-3.5 text-base outline-none placeholder:text-[#94a3b8]"
               disabled={loading}
             />
@@ -258,6 +270,21 @@ export function DemoEntryPage() {
               {loading ? '正在备课…' : '开始生成'}
             </button>
           </div>
+        </div>
+
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-xs text-[#64748b]">
+          <span className="bg-[#8E2F2B] px-2 py-1 text-white">Beta · 任意语文课程</span>
+          {['写作课：如何写好议论文分论点', '群文阅读：古诗中的月亮意象', '名著课：《红楼梦》人物关系', '复习专题：小说叙事视角'].map((topic) => (
+            <button
+              key={topic}
+              type="button"
+              disabled={loading}
+              onClick={() => setOneLiner(`高中语文 ${topic}`)}
+              className="border-b border-[#1e3a5f]/20 px-1 py-1 hover:text-[#1e3a5f]"
+            >
+              {topic}
+            </button>
+          ))}
         </div>
 
         <div className="mt-4 flex flex-wrap justify-center gap-2">

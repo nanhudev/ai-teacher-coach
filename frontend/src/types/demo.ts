@@ -12,6 +12,14 @@ export type DirectorBrief = {
   teaching_mode: string
   stage_template: string
   stages: { stage: string; intent: string; theory: string }[]
+  research_brief?: {
+    central_problem?: string
+    academic_tensions?: string[]
+    common_misreadings?: string[]
+    comparative_reading?: string[]
+    curriculum_basis?: string[]
+    advanced_insights?: string[]
+  }
 }
 
 export type LessonPlan = {

@@ -27,6 +27,12 @@ export const TEMPLATE_PROFILES: Partial<Record<PptTemplateId, TemplateProfile>> 
     sequence: ['cover', 'question', 'image_text', 'quote_analysis', 'activity', 'process', 'homework'],
     layoutRule: '使用纸张、书签和手绘符号，不使用科技霓虹、玻璃拟态或儿童贴纸堆叠。',
   },
+  coral: {
+    id: 'coral',
+    promise: '把课堂组织成一篇视觉文章，以观点标题、文本证据和比较阅读推进理解。',
+    sequence: ['cover', 'question', 'image_text', 'quote_analysis', 'comparison', 'timeline', 'summary'],
+    layoutRule: '杂志式栏宽与图文主次；不使用等权卡片；每页只保留一个中心判断。',
+  },
   doubao_story: {
     id: 'doubao_story',
     promise: '用一条情绪线带学生从场景进入文本，再回到问题。',

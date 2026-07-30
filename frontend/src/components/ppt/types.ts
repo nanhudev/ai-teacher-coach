@@ -130,15 +130,15 @@ export const TEMPLATE_META: Record<
     swatch: 'linear-gradient(135deg,#F3EAD7 0 68%,#8E2F2B 68%)',
   },
   coral: {
-    name: '文学杂志',
-    positioning: '现代散文',
-    vibe: '冷青 · 少卡片',
+    name: '文学·杂志青',
+    positioning: '现代文 / 群文阅读',
+    vibe: '编辑版式 · 冷青书页 · 观点先行',
     swatch: 'linear-gradient(135deg,#F7FAF8,#3F6F5C)',
   },
   doubao_story: {
-    name: '豆包·沉浸叙事',
-    positioning: '语文 / 人文故事课',
-    vibe: '全幅场景 · 章节转场 · 留白引文',
+    name: '叙事·电影书页',
+    positioning: '名著 / 人物 / 故事课',
+    vibe: '深绿幕布 · 章节转场 · 大字引文',
     swatch: 'linear-gradient(135deg,#12261F,#C8A36A)',
   },
   gamma_narrative: {
@@ -156,7 +156,7 @@ export const TEMPLATE_META: Record<
 }
 
 export const ALL_TEMPLATE_IDS = Object.keys(TEMPLATE_META) as PptTemplateId[]
-export const CHINESE_TEMPLATE_IDS: PptTemplateId[] = ['sage', 'academic', 'classroom']
+export const CHINESE_TEMPLATE_IDS: PptTemplateId[] = ['sage', 'academic', 'classroom', 'coral', 'doubao_story']
 
 /** 归一化旧 template_id */
 export function normalizeTemplateId(id?: string): PptTemplateId {

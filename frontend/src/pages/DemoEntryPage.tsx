@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import type { CaseSummary } from '../types/demo'
 import { useDemo } from '../state/DemoContext'
@@ -6,6 +6,12 @@ import { runChinesePipeline, chineseDemoCases } from '../chinese/runChinesePipel
 import type { PipelineProgress } from '../pipeline/types'
 import { listProjects } from '../storage/localProjectStore'
 import type { LocalProjectSummary } from '../storage/storageTypes'
+import {
+  CHINESE_VOLUMES,
+  HIGH_SCHOOL_CHINESE_CATALOG,
+  toChineseCourseInput,
+  type ChineseVolume,
+} from '../data/highSchoolChineseCatalog'
 
 const DEFAULT_TOPIC = '高中语文 必修上 赤壁赋'
 
@@ -51,6 +57,18 @@ export function DemoEntryPage() {
   const [log, setLog] = useState<PipelineProgress[]>([])
   const [cases, setCases] = useState<CaseSummary[]>([])
   const [recent, setRecent] = useState<LocalProjectSummary[]>([])
+  const [catalogOpen, setCatalogOpen] = useState(true)
+  const [catalogQuery, setCatalogQuery] = useState('')
+  const [catalogVolume, setCatalogVolume] = useState<'全部' | ChineseVolume>('全部')
+
+  const filteredCatalog = useMemo(() => {
+    const query = catalogQuery.trim().toLowerCase()
+    return HIGH_SCHOOL_CHINESE_CATALOG.filter((item) => {
+      if (catalogVolume !== '全部' && item.volume !== catalogVolume) return false
+      if (!query) return true
+      return `${item.title}${item.author || ''}${item.volume}${item.kind}`.toLowerCase().includes(query)
+    })
+  }, [catalogQuery, catalogVolume])
 
   useEffect(() => {
     setOneLiner(topicFromParam(params.get('topic')))
@@ -145,7 +163,7 @@ export function DemoEntryPage() {
           生成一节高中语文课
         </p>
         <p className="mt-3 text-center text-sm text-[#64748b]">
-          已预填示例课文，也可换成你正在备的篇目
+          统编高中语文五册已入库，搜索课文即可生成
         </p>
 
         {!!recent.length && (
@@ -240,6 +258,75 @@ export function DemoEntryPage() {
             </button>
           ))}
         </div>
+
+        <section className="mt-8 border border-[#1e3a5f]/12 bg-white/90">
+          <button
+            type="button"
+            onClick={() => setCatalogOpen((open) => !open)}
+            className="flex w-full items-center justify-between gap-3 px-4 py-4 text-left"
+          >
+            <span>
+              <strong className="text-sm text-[#1a1a1a]">高中语文课文库</strong>
+              <span className="ml-2 text-xs text-[#64748b]">
+                {HIGH_SCHOOL_CHINESE_CATALOG.length} 篇/部 · 统编五册
+              </span>
+            </span>
+            <span className="text-sm text-[#1e3a5f]">{catalogOpen ? '收起' : '展开'}</span>
+          </button>
+
+          {catalogOpen && (
+            <div className="border-t border-[#1e3a5f]/8 px-4 pb-4 pt-3">
+              <input
+                value={catalogQuery}
+                onChange={(event) => setCatalogQuery(event.target.value)}
+                placeholder="搜索课文、作者，例如：苏轼、鸿门宴"
+                className="w-full border border-[#1e3a5f]/12 bg-[#F7F4EF] px-3 py-2.5 text-sm outline-none focus:border-[#1e3a5f]/35"
+              />
+              <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+                {CHINESE_VOLUMES.map((volume) => (
+                  <button
+                    key={volume}
+                    type="button"
+                    onClick={() => setCatalogVolume(volume)}
+                    className={`shrink-0 px-3 py-1.5 text-xs ${
+                      catalogVolume === volume
+                        ? 'bg-[#1e3a5f] text-white'
+                        : 'bg-[#F7F4EF] text-[#64748b]'
+                    }`}
+                  >
+                    {volume}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-3 text-xs text-[#94a3b8]">找到 {filteredCatalog.length} 篇/部</p>
+              <div className="mt-2 grid max-h-72 gap-2 overflow-y-auto pr-1 sm:grid-cols-2">
+                {filteredCatalog.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    disabled={loading}
+                    onClick={() => {
+                      setOneLiner(toChineseCourseInput(item))
+                      setCatalogOpen(false)
+                    }}
+                    className="border border-[#1e3a5f]/8 bg-[#F7F4EF] px-3 py-2.5 text-left hover:border-[#1e3a5f]/30 hover:bg-white disabled:opacity-60"
+                  >
+                    <span className="block text-sm font-medium text-[#1a1a1a]">《{item.title}》</span>
+                    <span className="mt-1 block text-xs text-[#64748b]">
+                      {item.volume} · 第{item.unit}单元
+                      {item.author ? ` · ${item.author}` : ''}
+                    </span>
+                  </button>
+                ))}
+                {!filteredCatalog.length && (
+                  <p className="py-8 text-center text-sm text-[#94a3b8] sm:col-span-2">
+                    没找到该篇目，仍可在上方直接输入课题生成
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+        </section>
 
         {loading && (
           <div className="mt-8 bg-[#1e3a5f] p-5 text-white">

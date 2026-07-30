@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import type { CaseSummary } from '../types/demo'
 import { useDemo } from '../state/DemoContext'
-import { runChinesePipeline, chineseDemoCases } from '../chinese/runChinesePipeline'
+import { chineseDemoCases } from '../chinese/runChinesePipeline'
+import { generateCustomStream, type StreamEvent } from '../api/demo'
 import type { PipelineProgress } from '../pipeline/types'
 import { listProjects } from '../storage/localProjectStore'
 import type { LocalProjectSummary } from '../storage/storageTypes'
@@ -87,9 +88,19 @@ export function DemoEntryPage() {
     void listProjects().then((list) => setRecent(list.slice(0, 4)))
   }, [])
 
-  function onPipe(ev: PipelineProgress) {
-    setLog((prev) => [...prev.filter((x) => !(x.step === ev.step && x.status === 'done')), ev])
-    setProgress(ev.progress)
+  function onPipe(ev: StreamEvent | PipelineProgress) {
+    const normalized = {
+      ...ev,
+      step: ev.step as PipelineProgress['step'],
+      status: ev.status as PipelineProgress['status'],
+      message: ev.message || '',
+      progress: ev.progress ?? 0,
+    } satisfies PipelineProgress
+    setLog((prev) => [
+      ...prev.filter((x) => !(x.step === normalized.step && x.status === 'done')),
+      normalized,
+    ])
+    setProgress(normalized.progress)
   }
 
   async function generate() {
@@ -100,8 +111,15 @@ export function DemoEntryPage() {
     setLog([])
     setProgress(3)
     try {
-      const session = await runChinesePipeline(
-        { oneLiner: text, mode, template_id: 'auto' },
+      const session = await generateCustomStream(
+        {
+          course: text,
+          subject: '语文',
+          grade: '高中',
+          mode,
+          template_id: 'auto',
+          require_ai: true,
+        },
         onPipe,
       )
       const id = `proj_${Date.now().toString(36)}`
@@ -129,8 +147,15 @@ export function DemoEntryPage() {
     setLog([])
     setProgress(3)
     try {
-      const session = await runChinesePipeline(
-        { oneLiner: line, mode: 'full', template_id: 'auto' },
+      const session = await generateCustomStream(
+        {
+          course: line,
+          subject: '语文',
+          grade: '高中',
+          mode: 'full',
+          template_id: 'auto',
+          require_ai: true,
+        },
         onPipe,
       )
       const id = `proj_${Date.now().toString(36)}`

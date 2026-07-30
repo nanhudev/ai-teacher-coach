@@ -94,6 +94,19 @@ def iter_generate_full_session(
     role_type: str = "k12",
 ) -> Iterator[dict[str, Any]]:
     knowledge_points = knowledge_points or []
+    if "语文" in subject:
+        from app.services.chinese_generation_service import iter_generate_chinese_session
+
+        yield from iter_generate_chinese_session(
+            course=course,
+            grade=grade,
+            knowledge_points=knowledge_points,
+            period_count=period_count,
+            template_id=template_id,
+            role_type=role_type,
+        )
+        return
+
     template = knowledge_service.load_teaching_template(subject)
     rules = knowledge_service.load_pedagogy_rules()
     rubric_align = knowledge_service.load_rubric("objective_alignment")

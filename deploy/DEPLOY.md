@@ -2,7 +2,8 @@
 
 ## 静态 Demo（CloudBase Hosting）
 
-当前线上为静态 SPA：DeepSeek 流水线不可用时自动走《赤壁赋》离线精品包 + 7 套模板换肤。
+线上由静态 SPA + `aiteacher-api` 云托管服务组成。教师生成入口强制调用
+DeepSeek 统一课程包，不再静默降级为空框架。
 
 ```powershell
 cd frontend
@@ -14,10 +15,12 @@ tcb hosting deploy "dist" "aiteacher" -e bubble-8g3kzhr57e693e49
 
 访问：https://bubbleapp.cn/aiteacher/
 
-## 可选：完整 API（需自备后端）
+## DeepSeek API（必需）
 
-- `ROOT_PATH=`（nginx 剥掉 `/aiteacher`）或 `ROOT_PATH=/aiteacher`
-- 参考 `deploy/nginx-aiteacher.conf.example`
-- 流式生成需 `proxy_buffering off`
+- CloudBase Run 服务名：`aiteacher-api`
+- 自定义路由：`/aiteacher/api` → `aiteacher-api`，路径透传
+- 服务端环境变量：`DEEPSEEK_API_KEY`、`DEEPSEEK_BASE_URL`、`DEEPSEEK_MODEL`
+- 密钥只配置为云托管环境变量，禁止复制进镜像或 Git
+- `ROOT_PATH=`，由路由透传 `/aiteacher/api/v1/...`
 
 健康检查（仅后端在线时）：https://bubbleapp.cn/aiteacher/health

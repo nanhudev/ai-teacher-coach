@@ -98,6 +98,7 @@ export async function generateCustomStream(
     period_count?: number
     template_id?: string
     mode?: 'full' | 'lesson' | 'ppt'
+    require_ai?: boolean
   },
   onEvent: (ev: StreamEvent) => void,
 ): Promise<DemoSession> {
@@ -107,6 +108,13 @@ export async function generateCustomStream(
     body: JSON.stringify(input),
   })
   if (res?.ok && res.body) return readSse(res, onEvent)
+  if (input.require_ai) {
+    const detail = res ? await res.text().catch(() => '') : ''
+    throw new Error(
+      detail ||
+        'DeepSeek 课程生成服务暂时不可用。本次不会退回空框架，请稍后重试。',
+    )
+  }
 
   const oneLiner = `${input.grade}${input.subject} ${input.course}`
   const onPipe = (p: {

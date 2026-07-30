@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import type { CaseSummary } from '../types/demo'
 import { useDemo } from '../state/DemoContext'
@@ -64,6 +64,8 @@ export function DemoEntryPage() {
   const [catalogOpen, setCatalogOpen] = useState(true)
   const [catalogQuery, setCatalogQuery] = useState('')
   const [catalogVolume, setCatalogVolume] = useState<'全部' | ChineseVolume>('全部')
+  const composerRef = useRef<HTMLDivElement>(null)
+  const courseInputRef = useRef<HTMLInputElement>(null)
 
   const filteredCatalog = useMemo(() => {
     const query = catalogQuery.trim().toLowerCase()
@@ -251,9 +253,10 @@ export function DemoEntryPage() {
           </section>
         )}
 
-        <div className="mt-10 border border-[#1e3a5f]/12 bg-white p-3 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
+        <div ref={composerRef} className="mt-10 scroll-mt-8 border border-[#1e3a5f]/12 bg-white p-3 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <input
+              ref={courseInputRef}
               value={oneLiner}
               onChange={(e) => setOneLiner(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && !loading && generate()}
@@ -373,6 +376,10 @@ export function DemoEntryPage() {
                     onClick={() => {
                       setOneLiner(toChineseCourseInput(item))
                       setCatalogOpen(false)
+                      window.requestAnimationFrame(() => {
+                        composerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                        courseInputRef.current?.focus()
+                      })
                     }}
                     className="border border-[#1e3a5f]/8 bg-[#F7F4EF] px-3 py-2.5 text-left hover:border-[#1e3a5f]/30 hover:bg-white disabled:opacity-60"
                   >
@@ -394,7 +401,8 @@ export function DemoEntryPage() {
         </section>
 
         {loading && (
-          <div className="mt-8 bg-[#1e3a5f] p-5 text-white">
+          <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0f2238]/55 px-5 backdrop-blur-sm">
+          <div className="w-full max-w-xl bg-[#1e3a5f] p-6 text-white shadow-2xl">
             <div className="flex items-center justify-between text-sm">
               <span className="font-medium">正在生成这节课</span>
               <span>{Math.min(99, Math.round(displayProgress))}% · {elapsed}秒</span>
@@ -420,6 +428,7 @@ export function DemoEntryPage() {
               ))}
               {!log.length && <li className="text-white/70">正在理解课文…</li>}
             </ul>
+          </div>
           </div>
         )}
 

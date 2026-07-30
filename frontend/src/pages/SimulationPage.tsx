@@ -56,6 +56,28 @@ export function SimulationPage() {
   const turnIndex = currentSlot?.index ?? 0
   const done = answeredMap[turnIndex]
   const report = session.classroom_sim_report
+  const nextUnanswered = turns
+    .map((turn, index) => ({ turn, index }))
+    .find((item) => !answeredMap[item.index] && item.index !== turnIndex)
+
+  function sampleTeacherAnswer() {
+    const raw = String(current.sample_answer || '').trim()
+    const looksLikeAnalysis = /评分|得分|分析如下|该回答|优点|不足|建议改进|理解变化|模型/.test(raw)
+    if (raw && !looksLikeAnalysis) return raw
+    const evidence = (
+      session?.knowledge_injected as unknown as {
+        text_pack?: { original_evidence?: { quote?: string }[] }
+      }
+    )?.text_pack?.original_evidence?.[0]?.quote
+    return `这个问题要回到具体材料。先看${evidence ? `“${evidence}”` : '课文中的关键词和语境'}，它说明了什么；再联系前后文解释作者为什么这样写。你可以先说出自己的判断，我再和你一起补充证据。`
+  }
+
+  function goNextStudent() {
+    if (!nextUnanswered) return
+    setPersonaId(nextUnanswered.turn.persona_id)
+    setText('')
+    setAnimKey((key) => key + 1)
+  }
 
   if (!persona || !current) {
     return (
@@ -273,7 +295,8 @@ export function SimulationPage() {
                       {LEVEL_LABEL[p.level] || p.level}
                     </p>
                     <p className={`mt-1 text-[11px] ${active ? 'text-white/70' : 'text-ink-muted'}`}>
-                      {finished}/3 问                    </p>
+                      {finished}/{Math.max(1, turns.filter((t) => t.persona_id === p.id).length)} 问
+                    </p>
                   </div>
                 </div>
               </button>
@@ -332,7 +355,7 @@ export function SimulationPage() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setText(current.sample_answer)}
+                  onClick={() => setText(sampleTeacherAnswer())}
                   className="rounded-full bg-paper-2 px-4 py-2 text-sm text-ink-muted"
                 >
                   填入参考回答                </button>
@@ -365,19 +388,14 @@ export function SimulationPage() {
                 </p>
                 <p className="mt-1 text-ink-muted">{done.delta.note}</p>
               </div>
-              {personaTurns.some((x) => !answeredMap[x.index]) && (
+              {nextUnanswered && (
                 <button
                   type="button"
-                  onClick={() => {
-                    const next = personaTurns.find((x) => !answeredMap[x.index])
-                    if (next) {
-                      setAnimKey((k) => k + 1)
-                      setText('')
-                    }
-                  }}
-                  className="text-sm text-leaf underline-offset-2 hover:underline"
+                  onClick={goNextStudent}
+                  className="w-full rounded-xl bg-leaf px-4 py-3 text-sm font-semibold text-white"
                 >
-                  继续回答{persona.name}的下一问→                </button>
+                  下一位学生 · {personas.find((p) => p.id === nextUnanswered.turn.persona_id)?.name || '继续模拟'} →
+                </button>
               )}
             </div>
           )}

@@ -29,6 +29,7 @@ export function SimulationPage() {
   const [personaId, setPersonaId] = useState<string | null>(null)
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
+  const [analysisProgress, setAnalysisProgress] = useState(0)
   const [animKey, setAnimKey] = useState(0)
 
   const brief = useMemo(() => sessionToBrief(session), [session])
@@ -78,6 +79,11 @@ export function SimulationPage() {
   async function onSubmit() {
     if (!text.trim() || !session || !brief || !persona) return
     setBusy(true)
+    setAnalysisProgress(8)
+    const progressTimer = window.setInterval(
+      () => setAnalysisProgress((value) => Math.min(92, value + 7)),
+      450,
+    )
     try {
       let analysis: TeacherResponseAnalysis
       let delta: RoundAnswer['delta']
@@ -165,6 +171,8 @@ export function SimulationPage() {
       setText('')
       setAnimKey((k) => k + 1)
     } finally {
+      window.clearInterval(progressTimer)
+      setAnalysisProgress(100)
       setBusy(false)
     }
   }
@@ -329,6 +337,20 @@ export function SimulationPage() {
                 >
                   填入参考回答                </button>
               </div>
+              {busy && (
+                <div className="mt-4 rounded-xl bg-leaf/10 p-3">
+                  <div className="flex justify-between text-xs text-ink-muted">
+                    <span>正在分析回答与学生理解变化</span>
+                    <span>{analysisProgress}%</span>
+                  </div>
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-white">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-leaf to-amber-400 transition-all duration-500"
+                      style={{ width: `${analysisProgress}%` }}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className="mt-6 space-y-3">

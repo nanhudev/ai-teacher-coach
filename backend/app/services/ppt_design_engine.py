@@ -5,12 +5,12 @@ import re
 from typing import Any
 
 TEMPLATE_META = {
-    "academic": {"name": "Academic Minimal"},
-    "classroom": {"name": "Modern Classroom"},
+    "academic": {"name": "简约·书刊白"},
+    "classroom": {"name": "卡通·语文课堂"},
     "showcase": {"name": "Competition Showcase"},
     "gamma": {"name": "Gamma Soft"},
     "noir": {"name": "Noir Editorial"},
-    "sage": {"name": "Sage Calm"},
+    "sage": {"name": "国风·水墨卷"},
     "coral": {"name": "Coral Warm"},
 }
 
@@ -19,6 +19,7 @@ TYPE_TO_COMPONENT = {
     "opening": "CoverSlide",
     "question": "QuestionSlide",
     "concept": "ConceptSlide",
+    "quote_analysis": "QuoteAnalysisSlide",
     "image_text": "ImageTextSlide",
     "timeline": "TimelineSlide",
     "comparison": "ComparisonSlide",
@@ -160,6 +161,16 @@ def compile_ppt(
             slide["chart"] = raw["chart"]
         if raw.get("visual_prompt"):
             slide["visual_prompt"] = raw["visual_prompt"]
+        for field in (
+            "text_excerpt",
+            "analysis",
+            "analysis_cards",
+            "teacher_guidance",
+            "student_task",
+            "source_reference",
+        ):
+            if raw.get(field):
+                slide[field] = raw[field]
         compiled.append(slide)
 
     out = {

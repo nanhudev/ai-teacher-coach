@@ -62,6 +62,8 @@ export type EngineSlide = {
   slide_goal?: string
   main_question?: string
   analysis_cards?: { word: string; effect: string }[]
+  text_excerpt?: string
+  analysis?: string
 }
 
 export type DesignScore = {
@@ -92,16 +94,16 @@ export const TEMPLATE_META: Record<
   { name: string; positioning: string; vibe: string; swatch: string }
 > = {
   academic: {
-    name: '学院留白',
-    positioning: '高校 / 高中精品课',
-    vibe: '大留白 · 墨绿点缀',
-    swatch: 'linear-gradient(135deg,#FAFAF8,#0F766E)',
+    name: '简约·书刊白',
+    positioning: '现代文 / 常态课',
+    vibe: '编辑留白 · 宋黑搭配 · 清晰克制',
+    swatch: 'linear-gradient(135deg,#FCFBF8 0 66%,#315C4E 66%)',
   },
   classroom: {
-    name: '课堂活力',
-    positioning: '小学 / 初中',
-    vibe: '暖色 · 亲和',
-    swatch: 'linear-gradient(135deg,#FFF7ED,#EA580C)',
+    name: '卡通·语文课堂',
+    positioning: '导入课 / 活动课',
+    vibe: '手绘纸张 · 柔和插画 · 活泼不幼稚',
+    swatch: 'linear-gradient(135deg,#FFF5D8 0 64%,#E07A5F 64%)',
   },
   showcase: {
     name: '赛课展示',
@@ -122,10 +124,10 @@ export const TEMPLATE_META: Record<
     swatch: 'linear-gradient(135deg,#111111,#E5E5E5)',
   },
   sage: {
-    name: '宣纸文学',
-    positioning: '文言文公开课',
-    vibe: '宣纸 · 墨色 · 朱砂 · 留白',
-    swatch: 'linear-gradient(135deg,#F3EFE6,#9F1239)',
+    name: '国风·水墨卷',
+    positioning: '古诗文 / 公开课',
+    vibe: '宣纸 · 淡墨 · 朱砂 · 卷轴留白',
+    swatch: 'linear-gradient(135deg,#F3EAD7 0 68%,#8E2F2B 68%)',
   },
   coral: {
     name: '文学杂志',
@@ -154,6 +156,7 @@ export const TEMPLATE_META: Record<
 }
 
 export const ALL_TEMPLATE_IDS = Object.keys(TEMPLATE_META) as PptTemplateId[]
+export const CHINESE_TEMPLATE_IDS: PptTemplateId[] = ['sage', 'academic', 'classroom']
 
 /** 归一化旧 template_id */
 export function normalizeTemplateId(id?: string): PptTemplateId {

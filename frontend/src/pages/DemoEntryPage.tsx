@@ -55,6 +55,8 @@ export function DemoEntryPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [progress, setProgress] = useState(0)
+  const [displayProgress, setDisplayProgress] = useState(0)
+  const [elapsed, setElapsed] = useState(0)
   const [log, setLog] = useState<PipelineProgress[]>([])
   const [cases, setCases] = useState<CaseSummary[]>([])
   const [recent, setRecent] = useState<LocalProjectSummary[]>([])
@@ -88,6 +90,19 @@ export function DemoEntryPage() {
     void listProjects().then((list) => setRecent(list.slice(0, 4)))
   }, [])
 
+  useEffect(() => {
+    if (!loading) {
+      setElapsed(0)
+      setDisplayProgress(progress)
+      return
+    }
+    const timer = window.setInterval(() => {
+      setElapsed((value) => value + 1)
+      setDisplayProgress((value) => Math.min(96, Math.max(progress, value + (value < progress ? 2 : 0.35))))
+    }, 1000)
+    return () => window.clearInterval(timer)
+  }, [loading, progress])
+
   function onPipe(ev: StreamEvent | PipelineProgress) {
     const normalized = {
       ...ev,
@@ -96,11 +111,9 @@ export function DemoEntryPage() {
       message: ev.message || '',
       progress: ev.progress ?? 0,
     } satisfies PipelineProgress
-    setLog((prev) => [
-      ...prev.filter((x) => !(x.step === normalized.step && x.status === 'done')),
-      normalized,
-    ])
+    setLog((prev) => [...prev.filter((x) => x.step !== normalized.step), normalized])
     setProgress(normalized.progress)
+    setDisplayProgress((value) => Math.max(value, normalized.progress))
   }
 
   async function generate() {
@@ -357,14 +370,15 @@ export function DemoEntryPage() {
           <div className="mt-8 bg-[#1e3a5f] p-5 text-white">
             <div className="flex items-center justify-between text-sm">
               <span className="font-medium">正在生成这节课</span>
-              <span>{Math.min(99, Math.round(progress))}%</span>
+              <span>{Math.min(99, Math.round(displayProgress))}% · {elapsed}秒</span>
             </div>
-            <div className="mt-2 h-1.5 overflow-hidden bg-white/20">
+            <div className="mt-3 h-3 overflow-hidden rounded-full bg-white/20 ring-1 ring-white/20">
               <div
-                className="h-full bg-white transition-all duration-500"
-                style={{ width: `${Math.min(100, progress)}%` }}
+                className="h-full animate-pulse rounded-full bg-gradient-to-r from-amber-300 via-white to-cyan-200 transition-all duration-700"
+                style={{ width: `${Math.min(100, displayProgress)}%` }}
               />
             </div>
+            <p className="mt-2 text-xs text-white/70">内容会边生成边自检，页面无需刷新。</p>
             <ul className="mt-4 max-h-56 space-y-1.5 overflow-auto text-sm">
               {log.map((ev, i) => (
                 <li key={`${ev.step}-${ev.status}-${i}`} className="flex gap-2">

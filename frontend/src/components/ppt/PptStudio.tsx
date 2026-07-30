@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { EngineSlide, PptDesign, PptTemplateId } from './types'
-import { ALL_TEMPLATE_IDS, TEMPLATE_META, normalizeTemplateId } from './types'
+import { CHINESE_TEMPLATE_IDS, TEMPLATE_META, normalizeTemplateId } from './types'
 import { THEMES } from './themes'
 import { renderSlide } from './slides'
 import { slideTypeLabel } from '../../chinese/displayLabels'
@@ -22,7 +22,7 @@ export function PptStudio({ ppt, onTemplateChange, onDownload, downloading }: Pr
   const slide = slides[idx]
   const score = ppt.design_score
   const thumbTheme = useMemo(() => theme, [theme])
-  const profile = templateId in TEMPLATE_PROFILES ? TEMPLATE_PROFILES[templateId as keyof typeof TEMPLATE_PROFILES] : undefined
+  const profile = TEMPLATE_PROFILES[templateId]
 
   useEffect(() => {
     setAnimKey((k) => k + 1)
@@ -130,9 +130,9 @@ export function PptStudio({ ppt, onTemplateChange, onDownload, downloading }: Pr
 
       <aside className="space-y-3">
         <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-black/5">
-          <p className="text-xs font-medium text-slate-500">模板库（{ALL_TEMPLATE_IDS.length}）</p>
+          <p className="text-xs font-medium text-slate-500">语文母版（{CHINESE_TEMPLATE_IDS.length}）</p>
           <div className="mt-3 max-h-[42vh] space-y-2 overflow-auto pr-1">
-            {ALL_TEMPLATE_IDS.map((id) => {
+            {CHINESE_TEMPLATE_IDS.map((id) => {
               const meta = TEMPLATE_META[id]
               const active = templateId === id
               return (

@@ -8,7 +8,25 @@ export type TemplateProfile = {
 }
 
 /** Narrative and layout systems; themes alone do not define these templates. */
-export const TEMPLATE_PROFILES: Record<'doubao_story' | 'gamma_narrative' | 'seminar_studio', TemplateProfile> = {
+export const TEMPLATE_PROFILES: Partial<Record<PptTemplateId, TemplateProfile>> = {
+  sage: {
+    id: 'sage',
+    promise: '以宣纸留白承托原文，用淡墨层次与朱砂重点完成古诗文细读。',
+    sequence: ['cover', 'image_text', 'question', 'quote_analysis', 'timeline', 'comparison', 'summary'],
+    layoutRule: '大字原文为主角；一页一证据；装饰只使用印章、墨线与卷轴边界。',
+  },
+  academic: {
+    id: 'academic',
+    promise: '像一本清晰的语文读本：观点先行，正文与批注形成稳定阅读节奏。',
+    sequence: ['cover', 'image_text', 'question', 'quote_analysis', 'process', 'comparison', 'summary'],
+    layoutRule: '书刊网格与大留白；拒绝卡片墙；用页眉、细线和栏宽建立层级。',
+  },
+  classroom: {
+    id: 'classroom',
+    promise: '以柔和手绘元素拉近课堂距离，保留高中语文应有的克制与文本重量。',
+    sequence: ['cover', 'question', 'image_text', 'quote_analysis', 'activity', 'process', 'homework'],
+    layoutRule: '使用纸张、书签和手绘符号，不使用科技霓虹、玻璃拟态或儿童贴纸堆叠。',
+  },
   doubao_story: {
     id: 'doubao_story',
     promise: '用一条情绪线带学生从场景进入文本，再回到问题。',

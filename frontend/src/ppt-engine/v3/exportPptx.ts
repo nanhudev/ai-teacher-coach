@@ -8,12 +8,12 @@ const THEME: Record<
   string,
   { bg: string; fg: string; muted: string; accent: string; panel: string; name: string }
 > = {
-  academic: { bg: 'FAFAF8', fg: '1F2937', muted: '64748B', accent: '0F766E', panel: 'FFFFFF', name: 'Academic' },
-  classroom: { bg: 'FFF7ED', fg: '292524', muted: '78716C', accent: 'EA580C', panel: 'FFFFFF', name: 'Classroom' },
+  academic: { bg: 'FCFBF8', fg: '202521', muted: '68716B', accent: '315C4E', panel: 'F4F3EE', name: '简约·书刊白' },
+  classroom: { bg: 'FFF9E9', fg: '34312D', muted: '776F66', accent: 'D7654B', panel: 'F7EFD9', name: '卡通·语文课堂' },
   showcase: { bg: '0B1220', fg: 'F8FAFC', muted: '94A3B8', accent: 'F59E0B', panel: '1A2740', name: 'Showcase' },
   gamma: { bg: 'F8FAFC', fg: '0F172A', muted: '64748B', accent: '0284C7', panel: 'FFFFFF', name: 'Gamma Soft' },
   noir: { bg: '0A0A0A', fg: 'FAFAFA', muted: 'A3A3A3', accent: '38BDF8', panel: '171717', name: 'Math Precision' },
-  sage: { bg: 'F3EFE6', fg: '1C1917', muted: '78716C', accent: '9F1239', panel: 'FFFCF5', name: '宣纸文学' },
+  sage: { bg: 'F7F0E2', fg: '24211D', muted: '746B5E', accent: '8E2F2B', panel: 'EEE4D2', name: '国风·水墨卷' },
   coral: { bg: 'F7FAF8', fg: '1F2937', muted: '64748B', accent: '3F6F5C', panel: 'FFFFFF', name: '文学杂志' },
   doubao_story: { bg: '10251E', fg: 'FFF8E8', muted: 'D5C9AD', accent: 'D5AE6E', panel: '183329', name: '豆包·沉浸叙事' },
   gamma_narrative: { bg: 'F8F5EF', fg: '17251F', muted: '647067', accent: '426B62', panel: 'FFFFFF', name: 'Gamma·杂志讲述' },
@@ -28,6 +28,7 @@ function hex(c: string) {
 export async function exportPptxClient(ppt: PptDesign, filename = 'lesson.pptx') {
   const tid = normalizeTemplateId(String(ppt.template_id))
   const theme = THEME[tid] || THEME.gamma
+  const displayFont = tid === 'sage' || tid === 'academic' ? 'SimSun' : 'Microsoft YaHei'
   const prs = new PptxGenJS()
   prs.defineLayout({ name: 'LAYOUT_16x9', width: 13.333, height: 7.5 })
   prs.layout = 'LAYOUT_16x9'
@@ -51,7 +52,7 @@ export async function exportPptxClient(ppt: PptDesign, filename = 'lesson.pptx')
         fontSize: 40,
         bold: true,
         color: hex(theme.fg),
-        fontFace: 'Microsoft YaHei',
+        fontFace: displayFont,
       })
       if (raw.subtitle) {
         s.addText(String(raw.subtitle), {
@@ -61,7 +62,7 @@ export async function exportPptxClient(ppt: PptDesign, filename = 'lesson.pptx')
           h: 0.5,
           fontSize: 16,
           color: hex(theme.muted),
-          fontFace: 'Microsoft YaHei',
+          fontFace: displayFont,
         })
       }
       if (key) {
@@ -72,7 +73,7 @@ export async function exportPptxClient(ppt: PptDesign, filename = 'lesson.pptx')
           h: 0.6,
           fontSize: 18,
           color: hex(theme.accent),
-          fontFace: 'Microsoft YaHei',
+          fontFace: displayFont,
         })
       }
     } else if (stype === 'comparison') {
@@ -152,7 +153,7 @@ export async function exportPptxClient(ppt: PptDesign, filename = 'lesson.pptx')
           fontFace: 'Microsoft YaHei',
         })
       }
-    } else if (stype === 'quote' || stype === 'text_analysis') {
+    } else if (stype === 'quote' || stype === 'text_analysis' || stype === 'quote_analysis') {
       s.addText(raw.purpose || '文本细读', {
         x: 0.9,
         y: 0.45,
@@ -179,18 +180,20 @@ export async function exportPptxClient(ppt: PptDesign, filename = 'lesson.pptx')
         h: 2.6,
         fill: { color: hex(theme.accent) },
       })
-      if (key) {
-        s.addText(key, {
+      const quoteText = raw.text_excerpt || raw.text_evidence || key
+      if (quoteText) {
+        s.addText(`“${quoteText}”`, {
           x: 1.2,
           y: 1.7,
           w: 10.8,
           h: 2.0,
           fontSize: 22,
           color: hex(theme.fg),
-          fontFace: 'Microsoft YaHei',
+          fontFace: displayFont,
         })
       }
       const qBullets = [
+        ...(raw.analysis ? [raw.analysis] : []),
         ...(raw.bullets || []),
         ...(raw.steps || []).map((st) => `${st.label}${st.detail ? `：${st.detail}` : ''}`),
       ].slice(0, 6)

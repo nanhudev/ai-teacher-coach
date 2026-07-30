@@ -102,11 +102,23 @@ export async function generateCustomStream(
   },
   onEvent: (ev: StreamEvent) => void,
 ): Promise<DemoSession> {
-  const res = await tryFetch(`${BASE}/demo/generate/stream`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(input),
-  })
+  const request = () =>
+    tryFetch(`${BASE}/demo/generate/stream`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(input),
+    })
+  let res = await request()
+  if (res && [502, 503, 504].includes(res.status)) {
+    onEvent({
+      step: 'understand',
+      status: 'running',
+      message: '生成服务正在唤醒，已自动重试，请稍候',
+      progress: 5,
+    })
+    await new Promise((resolve) => window.setTimeout(resolve, 2200))
+    res = await request()
+  }
   if (res?.ok && res.body) return readSse(res, onEvent)
   if (input.require_ai) {
     const detail = res ? await res.text().catch(() => '') : ''

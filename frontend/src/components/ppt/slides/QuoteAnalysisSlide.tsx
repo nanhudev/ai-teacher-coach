@@ -18,7 +18,7 @@ export function QuoteAnalysisSlide({
       ? slide.analysis_cards
       : (slide.steps || []).map((s) => ({ word: s.label, effect: s.detail || '' }))
 
-  const quote = slide.text_evidence || slide.key_message || ''
+  const quote = slide.text_excerpt || slide.text_evidence || slide.key_message || ''
 
   return (
     <SlideShell theme={theme}>
@@ -94,7 +94,7 @@ export function QuoteAnalysisSlide({
           style={{ borderColor: theme.border }}
         >
           <p style={{ color: theme.accent }}>
-            {slide.teacher_guidance || slide.closing || '教师：写的是景，落的是人'}
+            {slide.teacher_guidance || slide.analysis || slide.closing || '教师：从关键词进入语境，再回到篇章主旨'}
           </p>
           {slide.student_task && (
             <p style={{ color: theme.muted }}>学生：{slide.student_task}</p>

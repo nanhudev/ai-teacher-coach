@@ -39,6 +39,10 @@ app.add_middleware(
 )
 
 app.include_router(api_router, prefix="/api/v1")
+# CloudBase 自定义域名开启路径透传时保留站点前缀。
+app.include_router(api_router, prefix="/aiteacher/api/v1")
+# CloudBase 自定义路由也可能剥离匹配前缀，仅把剩余 /v1 传给容器。
+app.include_router(api_router, prefix="/v1")
 
 # 生产一体部署：SERVE_SPA=true 且已 npm run build
 if os.getenv("SERVE_SPA", "").lower() == "true":

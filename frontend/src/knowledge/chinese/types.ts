@@ -1,6 +1,13 @@
 /** 高中语文课文知识库类型 — 知识库优先，禁止胡编 */
 
-export type ChineseUnit = '必修上' | '必修下' | '选择性必修' | '其他'
+export type ChineseUnit =
+  | '必修上'
+  | '必修下'
+  | '选择性必修上'
+  | '选择性必修中'
+  | '选择性必修下'
+  | '选择性必修'
+  | '其他'
 
 export type LiteraryKind = 'classical' | 'modern_prose' | 'narrative' | 'poetry'
 

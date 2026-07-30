@@ -75,12 +75,12 @@ export function listChineseCases() {
     .filter((title) => !TEXTBOOK_PACKS.some((t) => t.title === title))
     .map((title) => ({
       id: `rag-${title}`,
-      label: `RAG 语料 · 《${title}》`,
+      label: `重点精校 · 《${title}》`,
       subject: '语文',
       grade: '高中',
       knowledge_points: ['自动检索', '知识审核', '公开课生成'],
       oneLiner: `高中语文 《${title}》`,
-      hint: '权威公开资料 · 经审核生成',
+      hint: '关键原句 · 注释 · 主旨 · 考点已核',
       source: 'ai_generated' as const,
     }))
   return [...verified, ...curated, ...listGeneratedCases()]

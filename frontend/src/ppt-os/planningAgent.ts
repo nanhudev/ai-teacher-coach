@@ -46,7 +46,7 @@ export function planChinesePpt(
     minutes_hint: 1,
   })
 
-  // 情境：词牌，不是百科 bullet
+  // 情境：只保留读懂本文所需的信息，不套用具体篇目的旧标题
   const sceneTags =
     (kb.background_bullets || []).slice(0, 4).length >= 2
       ? (kb.background_bullets || []).slice(0, 4)
@@ -55,7 +55,7 @@ export function planChinesePpt(
     section: 'author_context',
     type: 'image_scene',
     layout: 'image_scene',
-    title: clipTitle(`${author}的秋`),
+    title: clipTitle(`${t} · 写作情境`),
     main_question: clipBody(`走进《${t}》的心境`, 20),
     key_message: clipBody(
       kb.background || brief.text_background || '只留读懂文本的一个锚点',
@@ -68,7 +68,7 @@ export function planChinesePpt(
     slide_goal: goal.author_context,
     teacher_action: '删百科，只留读文必需',
     student_action: '记下与文本相关的一个锚点',
-    visual_prompt: brief.visual_prompts[0] || '北平秋晨',
+    visual_prompt: brief.visual_prompts[0] || `${t}写作情境`,
     source_reference: `《${t}》· 情境`,
     minutes_hint: 2,
   })
@@ -276,11 +276,28 @@ export function planChinesePpt(
     title: clipTitle('分层作业'),
     main_question: clipBody('带走一句，写清证据', 20),
     steps: [
-      { label: '基础', detail: clipBody('摘录文眼句，解释清/静/悲凉', 36) },
-      { label: '提升', detail: clipBody('选一细小景物，写画面与心境', 36) },
+      {
+        label: '基础',
+        detail: clipBody(
+          kb.practice_item?.prompt ||
+            (kb.kind === 'classical'
+              ? '整理重点实词，翻译一处关键句'
+              : '摘录一处关键句，说明手法与情感'),
+          36,
+        ),
+      },
+      {
+        label: '提升',
+        detail: clipBody(
+          brief.core_questions[0]
+            ? `用两处原文证据回答：${brief.core_questions[0]}`
+            : `用两处原文证据概括《${t}》主旨`,
+          36,
+        ),
+      },
       ...(sparse
         ? []
-        : [{ label: '拓展', detail: clipBody('比较另一篇写秋散文的心境', 36) }]),
+        : [{ label: '拓展', detail: clipBody(`为《${t}》选择一篇比较阅读文本`, 36) }]),
     ],
     slide_goal: goal.homework,
     teacher_action: '分层布置，反馈关键证据',

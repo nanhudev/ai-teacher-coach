@@ -19,7 +19,10 @@ export function parseChineseInput(oneLiner: string): ParsedChineseInput {
   const compact = raw.replace(/\s+/g, '')
 
   let unit: ChineseUnit = '其他'
-  if (/必修下|必修二|必修2/.test(compact)) unit = '必修下'
+  if (/选择性必修下|选必下/.test(compact)) unit = '选择性必修下'
+  else if (/选择性必修中|选必中/.test(compact)) unit = '选择性必修中'
+  else if (/选择性必修上|选必上/.test(compact)) unit = '选择性必修上'
+  else if (/必修下|必修二|必修2/.test(compact)) unit = '必修下'
   else if (/必修上|必修一|必修1/.test(compact)) unit = '必修上'
   else if (/选择性必修|选修/.test(compact)) unit = '选择性必修'
 
@@ -33,7 +36,7 @@ export function parseChineseInput(oneLiner: string): ParsedChineseInput {
       .replace(/高中|初中|小学|大学/g, '')
       .replace(/语文|文言文|现代文|散文/g, '')
       .replace(/人教版|部编版/g, '')
-      .replace(/必修[上下一二三四12]|选择性必修[上下一二]?/g, '')
+      .replace(/选择性必修[上中下一二三]?|选必[上中下]|必修[上下一二三四12]/g, '')
       .replace(/第?[一二三四五六七八九十\d]+单元/g, '')
       .replace(/公开课|精品课|备课/g, '')
       .trim()

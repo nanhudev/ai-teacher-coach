@@ -152,11 +152,15 @@ function assemblePack(
       `来源：${sourceLabel}`.slice(0, 20),
     ].filter(Boolean),
     core_questions: [
-      `《${title}》要解决的核心问题是什么？`,
+      u.core_theme && !/待教材核对/.test(u.core_theme)
+        ? `《${title}》如何表现「${u.core_theme.slice(0, 30)}」？`
+        : `《${title}》要解决的核心问题是什么？`,
       u.key_sentences[0]
-        ? `如何理解「${u.key_sentences[0].text.slice(0, 14)}」？`
+        ? `如何理解「${u.key_sentences[0].text.slice(0, 18)}」在全文中的作用？`
         : `哪一句最能体现作者态度？`,
-      `本课与高考如何对接？`,
+      originals.length >= 2
+        ? `从「${originals.map((c) => c.meta?.label || '关键句').slice(0, 3).join('—')}」看，全文的情感或论证怎样推进？`
+        : `本课与高考如何对接？`,
     ],
     classroom_questions: [
       `读《${title}》，你最想弄清什么？`,
@@ -190,19 +194,29 @@ function assemblePack(
     scenery_layers: isClassical
       ? ['解题', '疏通文意', '关键句', '主旨探究', '高考迁移']
       : ['导入', '整体感知', '细读', '主旨', '高考迁移'],
-    emotion_arc: [
-      { stage: '初读', detail: '整体感知' },
-      { stage: '细读', detail: '证据链' },
-      { stage: '探究', detail: u.core_theme.slice(0, 16) },
-    ],
+    emotion_arc: originals.length
+      ? originals.slice(0, 3).map((c) => ({
+          stage: c.meta?.label || '关键文本',
+          detail: c.content.slice(0, 24),
+        }))
+      : [
+          { stage: '初读', detail: '整体感知' },
+          { stage: '细读', detail: '证据链' },
+          { stage: '探究', detail: u.core_theme.slice(0, 16) },
+        ],
     literary_features: u.writing_features,
-    structure: [
-      { part: '导入', content: '问题驱动' },
-      { part: '初读', content: isClassical ? '疏通文意' : '整体感知' },
-      { part: '细读', content: '关键句证据' },
-      { part: '探究', content: '主旨价值' },
-      { part: '迁移', content: '高考对接' },
-    ],
+    structure: originals.length
+      ? originals.slice(0, 4).map((c) => ({
+          part: c.meta?.label || '文本层次',
+          content: c.content.slice(0, 36),
+        }))
+      : [
+          { part: '导入', content: '问题驱动' },
+          { part: '初读', content: isClassical ? '疏通文意' : '整体感知' },
+          { part: '细读', content: '关键句证据' },
+          { part: '探究', content: '主旨价值' },
+          { part: '迁移', content: '高考对接' },
+        ],
     exam_points: exams.length
       ? exams.map((e) => e.content).slice(0, 5)
       : u.exam_value.slice(0, 5),

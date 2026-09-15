@@ -1,104 +1,99 @@
 <div align="center">
 
-# AI Teacher Coach · 智课助手
+# AI Teacher Coach
 
-**面向高中语文教师的 AI 备课与课堂训练工具**
+**An AI lesson-prep and classroom-practice tool for Chinese-language teachers**
 
-输入一篇课文或任意课程主题 → 教研分析 · 教案 · 语文课件 · 虚拟学生课堂模拟 · 教学评价
+One text or topic in → teaching analysis · lesson plan · Chinese-language slides · virtual-student classroom simulation · teaching evaluation
 
-[![在线体验](https://img.shields.io/badge/在线体验-bubbleapp.cn%2Faiteacher-4f86df?style=flat-square)](https://bubbleapp.cn/aiteacher/)
+[![Live](https://img.shields.io/badge/live-bubbleapp.cn%2Faiteacher-4f86df?style=flat-square)](https://bubbleapp.cn/aiteacher/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React%2018-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![DeepSeek](https://img.shields.io/badge/LLM-DeepSeek-4D6BFE?style=flat-square)](https://deepseek.com/)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue?style=flat-square)](LICENSE)
 
+**[English](README.md) · [中文](README.zh-CN.md)**
+
 </div>
 
 ---
 
-## 这是什么
+## What this is
 
-一个**真实上线并在被教师使用**的备课工具，不是 Prompt 演示，也不是 PPT 生成器。
+A lesson-prep tool that is **actually live and actually being used by teachers** — not a prompt demo, not a slide generator.
 
-它试图解决一个具体问题：高中语文备课里最耗时的不是"写字"，而是**把教学判断、教材依据、课件呈现和政策要求对齐**——
-教研报告写得漂亮但和教案对不上，课件模板好看但把原文改掉了，这些都是真实课堂里的常见事故。
+It targets one concrete problem. In Chinese-language lesson prep, the expensive part is not writing prose. It is **keeping teaching judgement, textbook evidence, slide presentation and curriculum requirements aligned** — a teaching analysis that reads beautifully but contradicts the lesson plan, or a template that looks great but silently rewrites the source text. Both are common accidents in real classrooms.
 
-**设计目标：不是完整商业系统，而是跑通一条可信的黄金路径。**
+**The design goal is not a complete commercial system. It is one trustworthy golden path.**
 
-> 无需登录 → 选课或输入课程主题 → 教研分析 → 教案 → 课件 → 虚拟学生模拟 → 教学评价
+> No login → pick a text or type any topic → teaching analysis → lesson plan → slides → virtual-student simulation → teaching evaluation
 
-**当前状态**：已发布正式站，电脑端与手机端可用。任意课程、用户系统与产品统计处于 Beta。
-
----
-
-## 核心设计：LLM 不做全部的事
-
-这是这个项目最重要的一个取舍，写在 `prompts/ppt_os_system.md` 里：
-
-```
-你（DeepSeek）：教学思考与问题链
-Skill 文件：    硬规则（字数、必含板块、禁止项）
-模板库：        美学（水墨 / 学术 / 探究）
-Renderer：      输出 React / PPTX
-```
-
-**为什么这样分**：如果让 LLM 同时负责"教学思考"和"排版规则"和"美学"，
-它会在三项里都做到 70 分，而且每次输出都不一致。
-把硬规则和美学从模型里拿出来、变成可版本控制的文件之后：
-
-- 课件结构变得**可测试**（有必含板块、有禁止项）
-- 换模板**不丢原文内容**
-- 模型只需要专注做它真正擅长的事：教学判断
-
-同样地，每页 PPT 必须声明 `slide_goal`——**每页服务于一个教学目标**，
-而不是为了好看而堆砌页面。
+**Status**: the public site is released and works on desktop and mobile. Arbitrary course topics, the user system and product analytics are in beta.
 
 ---
 
-## 功能
+## Core design: the LLM does not do everything
 
-### 教研分析
-围绕当前课程生成：本课核心问题 · 学术争点 · 学生常见误读 · 比较阅读方向 ·
-课程标准与考点依据 · 可用于公开课的进阶洞见。
+This is the most important trade-off in the project, and it is written into `prompts/ppt_os_system.md`:
 
-**教研分析、教案、课件共用同一份课程证据**——这是为了消除"教案相关、教研报告却是套路话"。
+```
+You (DeepSeek):   teaching reasoning and the question chain
+Skill files:      hard rules (word counts, required sections, prohibitions)
+Template library: aesthetics (ink-wash / academic / inquiry)
+Renderer:         outputs React / PPTX
+```
 
-### 任意语文课程（Beta）
-不只支持教材课文。可直接输入：
+**Why split it this way**: if you ask one LLM to own *teaching reasoning* and *layout rules* and *aesthetics* at once, it lands around 70% on all three and produces something different every time. Pull hard rules and aesthetics out of the model and into version-controlled files, and:
 
-| 课程类型 | 示例 |
+- slide structure becomes **testable** (required sections, explicit prohibitions)
+- switching templates **no longer loses source text**
+- the model can concentrate on the one thing it is genuinely good at: teaching judgement
+
+The same logic applies per page: every slide must declare a `slide_goal` — **each page serves one teaching objective**, rather than accumulating pages because they look good.
+
+---
+
+## Features
+
+### Teaching analysis
+Generated around the current course: the core question · scholarly points of contention · common student misreadings · comparative-reading directions · curriculum-standard and exam-syllabus grounding · advanced insight usable in a demonstration lesson.
+
+**The analysis, the lesson plan and the slides share one course evidence pack** — structurally eliminating the "plan is relevant, analysis is boilerplate" failure.
+
+### Arbitrary Chinese-language courses (Beta)
+Not limited to textbook texts. You can enter:
+
+| Course type | Example |
 |---|---|
-| 写作课 | 如何写好议论文分论点 |
-| 群文阅读 | 古诗中的月亮意象 |
-| 名著课 | 《红楼梦》人物关系 |
-| 阅读课 | 小说叙事视角 |
-| 复习专题 | 古诗词情感题答题方法 |
+| Writing | How to write strong argument sub-claims |
+| Comparative reading | The moon as image across classical poetry |
+| Set-text study | Character relationships in *Dream of the Red Chamber* |
+| Reading | Narrative point of view in fiction |
+| Exam revision | Answering technique for classical-poetry emotion questions |
 
-系统先判断课程类型，再匹配不同的教学结构，**不再把所有课程套进同一套课文精读框架**。
+The system first classifies the course type, then matches a different teaching structure — **it no longer forces every course into the same close-reading template**.
 
-### 五套语文 PPT 母版
+### Five Chinese-language PPT masters
 
-| 母版 | 适用 |
+| Master | Best for |
 |---|---|
-| 国风·水墨卷 | 古诗文、文言文、传统文化 |
-| 简约·书刊白 | 现代文精读、常态课 |
-| 卡通·语文课堂 | 导入课、活动课、基础学情 |
-| 文学·杂志青 | 群文阅读、散文、文学评论 |
-| 叙事·电影书页 | 名著、人物、故事类课程 |
+| 国风·水墨卷 (ink-wash) | Classical poetry and prose, traditional culture |
+| 简约·书刊白 (editorial white) | Modern prose close reading, ordinary lessons |
+| 卡通·语文课堂 (classroom cartoon) | Introductory and activity lessons |
+| 文学·杂志青 (literary magazine) | Comparative reading, essays, criticism |
+| 叙事·电影书页 (cinematic) | Set texts, characters, stories |
 
-包含作者与写作背景、原文细读、篇章结构、重点词句、课堂任务、考点迁移。
-**模板切换不丢失原文内容。** 可导出真实 `.pptx`。
+Each covers author and background, close reading of the source, textual structure, key phrases, classroom tasks and exam transfer. **Switching templates does not lose source text.** Real `.pptx` export.
 
-### 虚拟学生课堂模拟
-提供基础 / 普通 / 优秀三个层次的虚拟学生，教师可以练习现场回应。
+### Virtual-student classroom simulation
+Three levels of virtual student — foundational, average, advanced — so a teacher can rehearse live responses.
 
-- 学生提问**必须来自**教材原文与字词、当前教学目标、当前教学阶段（`prompts/simulation_agent.md` 硬性约束），不闲聊
-- 参考回答会过滤模型分析痕迹和评分话术
-- 回答后显示学生理解变化与改进建议
+- Student questions **must come from** the textbook text and vocabulary, the current objective and the current teaching stage (`prompts/simulation_agent.md` hard constraints). No small talk.
+- Reference answers filter out model-analysis traces and grading language
+- After each answer you see the student's change in understanding plus improvement suggestions
 
-### 证据分层与可信度标注
-`backend/app/agents/knowledge_retrieval_agent.py` 把检索到的语料分桶为
-原文 / 注释 / 作者背景 / 教学资源 / 考点，并给出显式可信度：
+### Evidence layering and confidence labelling
+`backend/app/agents/knowledge_retrieval_agent.py` buckets retrieved material into source text / annotations / author background / teaching resources / exam points, and attaches explicit confidence:
 
 ```python
 "verification": {
@@ -109,43 +104,43 @@ Renderer：      输出 React / PPTX
 }
 ```
 
-**没有原文就标 `verified=false`，而不是假装知道。** 这条规则写在代码里，不写在文档里。
+**With no source text it reports `verified=false`, rather than pretending to know.** That rule lives in the code, not in a document.
 
-### 用户与隐私
-- 访客身份或 CloudBase 正式登录
-- **行为统计必须先获得用户同意**，用户可随时关闭并删除自己的统计数据
-- 原始输入明细默认不公开，仅管理员验证后可查看脱敏内容
+### Users and privacy
+- Guest identity or full CloudBase sign-in
+- **Behaviour analytics requires explicit user consent**, and can be switched off with the user's own data deleted at any time
+- Raw input detail is private by default; only de-identified content is visible after the operator verifies
 
 ---
 
-## 技术栈
+## Stack
 
-| 层 | 技术 |
+| Layer | Technology |
 |---|---|
-| 后端 | FastAPI · Pydantic v2 · httpx |
-| 前端 | React 18 · TypeScript · Vite |
-| LLM | DeepSeek（OpenAI 兼容协议） |
-| 导出 | python-pptx · python-docx |
-| 部署 | CloudBase Hosting（前端）+ CloudBase Run（后端） |
+| Backend | FastAPI · Pydantic v2 · httpx |
+| Frontend | React 18 · TypeScript · Vite |
+| LLM | DeepSeek (OpenAI-compatible) |
+| Export | python-pptx · python-docx |
+| Deploy | CloudBase Hosting (frontend) + CloudBase Run (backend) |
 
 ---
 
-## 快速开始
+## Quick start
 
-### 前置要求
+### Requirements
 
 - Python ≥ 3.11
 - Node.js ≥ 18
-- DeepSeek API Key（或任意 OpenAI 兼容端点）
+- A DeepSeek API key (or any OpenAI-compatible endpoint)
 
-### 1. 配置
+### 1. Configure
 
 ```bash
 cp .env.example .env
-# 填入 DEEPSEEK_API_KEY
+# fill in DEEPSEEK_API_KEY
 ```
 
-### 2. 后端
+### 2. Backend
 
 ```bash
 python -m venv .venv
@@ -156,9 +151,9 @@ cd backend
 uvicorn app.main:app --reload --app-dir .
 ```
 
-API 文档：http://127.0.0.1:8000/docs
+API docs: http://127.0.0.1:8000/docs
 
-### 3. 前端
+### 3. Frontend
 
 ```bash
 cd frontend
@@ -166,9 +161,9 @@ npm install
 npm run dev
 ```
 
-打开 http://127.0.0.1:5173
+Open http://127.0.0.1:5173
 
-### 验证 LLM 连通性
+### Check LLM connectivity
 
 ```bash
 python scripts/test_deepseek.py
@@ -183,84 +178,84 @@ docker run -p 8000:8000 --env-file .env ai-teacher-coach
 
 ---
 
-## 黄金路径
+## The golden path
 
-1. 首页点「高中语文 · 《赤壁赋》」，或自定义课题
-2. 教研分析（教育学理论 + 教学模式策略）
-3. 教案 + **目标一致性分数**
-4. 课件网页预览（可切 5 套母版）
-5. Before / After 对比
-6. 三角色学生模拟（提交回答 → 观察理解变化）
-7. 教学评价报告
-8. 保存课程，继续编辑
+1. On the home page click “高中语文 · 《赤壁赋》”, or type your own topic
+2. Teaching analysis (pedagogy theory + instructional strategy)
+3. Lesson plan + **objective-consistency score**
+4. Slide preview in the browser (switch across 5 masters)
+5. Before / After comparison
+6. Three-role student simulation (submit an answer → watch understanding change)
+7. Teaching evaluation report
+8. Save the course and keep editing
 
-> 全链路 AI 生成约 **1–2 分钟**（多次 LLM 调用）。
-> 示例课取消勾选「用 DeepSeek 重新生成」可秒开 Mock 数据。
+> A full AI-generated pass takes about **1–2 minutes** (several LLM calls).
+> For the sample lesson, untick “regenerate with DeepSeek” to get mock data instantly.
 
 ---
 
-## 目录结构
+## Layout
 
 ```
 backend/app/
-  agents/             知识检索 + 课程诊断（review_agent）
-  knowledge/          教育壁垒层
-    pedagogy_rules/       建构主义 / 认知主义 / 行为主义 / 支架式 / 布卢姆
-    evaluation_rubrics/   课堂评价量表 · 目标一致性
-    teaching_templates/   语文 / 数学 / 科学 / 默认
+  agents/             knowledge retrieval + course diagnosis (review_agent)
+  knowledge/          the pedagogy moat
+    pedagogy_rules/       constructivism / cognitivism / behaviourism / scaffolding / Bloom
+    evaluation_rubrics/   classroom evaluation rubrics · objective consistency
+    teaching_templates/   Chinese / maths / science / default
     demo_cases/           《赤壁赋》《分数》《二次函数》
-  services/           生成流水线 · PPT 导出 · 遥测 · 检索
-  skills/ppt/         PPT 硬规则（布局 / 图表 / 文学 / 公开课）
-  prompts/            8 个 Agent 提示词
+  services/           generation pipeline · PPT export · telemetry · retrieval
+  skills/ppt/         PPT hard rules (layout / charts / literature / demo lesson)
+  prompts/            8 agent prompts
   api/                demo · review · knowledge · telemetry
 
 frontend/src/
-  knowledge/          语文知识层（权威文件 / 课文原文 / 评价标准）
-  knowledge_system/   组装 · 检索 · 文本理解 · 校验
-  ppt-engine/         PPT 渲染（v3）
-  pipeline/           蓝图 · 输入解析 · 主流程
-  review/             本地评审
-  pages/              黄金路径页面
+  knowledge/          Chinese-language knowledge layer (authoritative files / source texts / rubrics)
+  knowledge_system/   assembly · retrieval · text understanding · validation
+  ppt-engine/         PPT rendering (v3)
+  pipeline/           blueprint · input parsing · main flow
+  review/             local review
+  pages/              golden-path pages
 
-prompts/              根级 Agent 提示词（可读版）
-deploy/               CloudBase 部署说明
-docs/                 产品介绍
+prompts/              root-level agent prompts (readable)
+deploy/               CloudBase deployment notes
+docs/                 product documentation
 ```
 
 ---
 
-## 设计取舍（与"为什么不是另一种做法"）
+## Design trade-offs (and why not the alternative)
 
-| 取舍 | 理由 |
+| Trade-off | Reasoning |
 |---|---|
-| Skill 文件管硬规则，LLM 管教学思考 | 让课件结构可测试；避免模型在多项要求上平均做到 70 分 |
-| 教研 / 教案 / 课件共用同一份课程证据 | 从结构上消除三者互相矛盾 |
-| 每页必须声明 `slide_goal` | 防止为了好看堆页面 |
-| 无原文即标 `verified=false` | 宁可承认不知道，也不编造教材原文 |
-| 先判断课程类型再匹配结构 | 群文阅读和文言文精读不该用同一套框架 |
-| 统计需明示同意 | 教师课堂数据敏感，默认不采集 |
+| Skill files own hard rules, the LLM owns teaching reasoning | Makes slide structure testable; avoids a model averaging 70% across every requirement |
+| Analysis / plan / slides share one evidence pack | Structurally removes contradictions between the three |
+| Every slide must declare `slide_goal` | Stops pages accumulating because they look good |
+| No source text ⇒ `verified=false` | Better to admit ignorance than to invent textbook text |
+| Classify course type before matching structure | Comparative reading and classical close reading should not share a frame |
+| Analytics require explicit consent | Teachers' classroom data is sensitive; default is not to collect |
 
 ---
 
-## 已知限制
+## Known limitations
 
-诚实说明当前边界：
+An honest account of the current boundary:
 
-- 任意课程类型仍是 **Beta**，结构匹配质量不稳定
-- 全链路生成 1–2 分钟，长课程会接近上限
-- 用户系统与数据持久化仍在完善
-- 教育理论注入目前覆盖 5 类（建构/认知/行为/支架/布卢姆），未覆盖全部流派
-- 课件美学依赖模板库，超出 5 套母版的风格需要自行扩展
+- Arbitrary course types are still **Beta**; structure-matching quality is inconsistent
+- A full generation pass takes 1–2 minutes, and long courses approach the ceiling
+- The user system and data persistence are still being completed
+- Pedagogy injection currently covers 5 families (constructivist / cognitive / behaviourist / scaffolding / Bloom), not every school
+- Slide aesthetics depend on the template library; styles beyond the 5 masters need custom extension
 
 ---
 
-## 关于
+## About
 
-由 [余宣均 / Xuanjun Yu](https://github.com/nanhudev) 设计与开发，
-[BubbleLab 泡泡泡泡科技有限公司](https://bubbleapp.cn) 出品，澳门大学。
+Designed and built by [Xuanjun Yu / 余宣均](https://github.com/nanhudev),
+produced by [BubbleLab Technology Co., Ltd.](https://bubbleapp.cn), University of Macau.
 
 > I build AI systems whose claims can be checked.
 
-## 许可
+## License
 
 [Apache-2.0](LICENSE)

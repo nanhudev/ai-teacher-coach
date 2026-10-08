@@ -13,6 +13,7 @@ import { BeforeAfterPage } from './pages/BeforeAfterPage'
 import { SimulationPage } from './pages/SimulationPage'
 import { EvaluationPage } from './pages/EvaluationPage'
 import { UserInfoPage } from './pages/UserInfoPage'
+import { EvidenceReviewPage } from './pages/EvidenceReviewPage'
 import { track } from './services/telemetry'
 import { setAnalyticsConsent } from './services/telemetry'
 import { useState } from 'react'
@@ -62,6 +63,7 @@ export default function App() {
           <Route path="/" element={<MarketingHomePage />} />
           <Route path="/demo" element={<DemoEntryPage />} />
           <Route path="/showcase" element={<ShowcasePage />} />
+          <Route path="/review" element={<EvidenceReviewPage />} />
           <Route path="/app" element={<Navigate to="/app/projects" replace />} />
           <Route path="/app/projects" element={<MyCoursesPage />} />
           <Route path="/projects" element={<MyCoursesPage />} />

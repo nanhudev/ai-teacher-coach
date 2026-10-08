@@ -4,6 +4,14 @@ __pycache__/
 .env
 node_modules/
 frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
 backend/uploads/
 *.db
 .DS_Store
+
+# Desktop build outputs
+desktop/node_modules/
+desktop/dist/
+desktop/runtime/
+desktop/test-results/

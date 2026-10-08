@@ -31,6 +31,8 @@ def search_chinese_topic(topic: str, *, allow_internet: bool = False) -> list[di
     """按优先级返回 sourced chunks。默认不联网。"""
     s = re.sub(r"\s+", "", topic or "")
     chunks: list[dict[str, Any]] = []
+    if not s:
+        return chunks
 
     for title, data in _CURATED.items():
         if title in s or s in title:

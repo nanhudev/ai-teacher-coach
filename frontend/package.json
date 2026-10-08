@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "test:ui": "playwright test",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -19,6 +21,7 @@
     "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/file-saver": "^2.0.7",
     "@types/node": "^24.13.3",
@@ -29,5 +32,8 @@
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
+  },
+  "overrides": {
+    "image-size": "2.0.4"
   }
 }

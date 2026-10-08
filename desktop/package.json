@@ -1,0 +1,88 @@
+{
+  "name": "ai-teacher-coach-desktop",
+  "version": "0.4.0",
+  "private": true,
+  "description": "生成40分钟教案，核对原文引句，审阅教学环节，再导出可以继续编辑的课件。",
+  "author": "nanhudev",
+  "license": "MIT",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "node stage.cjs && electron .",
+    "test": "node --test tests/*.test.cjs",
+    "package": "node stage.cjs && electron-builder --publish never",
+    "package:win": "node stage.cjs && electron-builder --win --x64 --publish never",
+    "test:ui": "node smoke.cjs",
+    "test:package": "node package-check.cjs"
+  },
+  "dependencies": {
+    "jose": "6.2.12",
+    "pptxgenjs": "4.0.1"
+  },
+  "devDependencies": {
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3",
+    "@playwright/test": "1.63.0"
+  },
+  "overrides": {
+    "image-size": "2.0.4"
+  },
+  "build": {
+    "appId": "dev.nanhu.aiteachercoach",
+    "productName": "AI Teacher Coach",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "*.cjs",
+      "*.json",
+      "index.html",
+      "style.css",
+      "!package-lock.json",
+      "!stage.cjs",
+      "!runtime/**",
+      "!smoke.cjs",
+      "!interactive-check.cjs",
+      "!package-check.cjs"
+    ],
+    "extraResources": [
+      {
+        "from": "runtime",
+        "to": "runtime"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "ai-teacher-coach-${version}-Setup-${arch}.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.productivity",
+      "hardenedRuntime": false
+    },
+    "artifactName": "ai-teacher-coach-${version}-${os}-${arch}.${ext}",
+    "portable": {
+      "artifactName": "ai-teacher-coach-${version}-Portable-${arch}.${ext}"
+    },
+    "icon": "icons/icon.png"
+  }
+}

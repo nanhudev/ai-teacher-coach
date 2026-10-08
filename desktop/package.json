@@ -83,6 +83,11 @@
     "portable": {
       "artifactName": "ai-teacher-coach-${version}-Portable-${arch}.${ext}"
     },
-    "icon": "icons/icon.png"
+    "icon": "icons/icon.png",
+    "publish": null
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nanhudev/ai-teacher-coach.git"
   }
 }

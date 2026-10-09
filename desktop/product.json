@@ -1,0 +1,9 @@
+{
+  "name": "AI Teacher Coach",
+  "kind": "teacher",
+  "headline": "让课堂设计有依据、有节奏",
+  "description": "生成40分钟教案，核对原文引句，审阅教学环节，再导出可以继续编辑的课件。",
+  "category": "AI 教研工作台",
+  "tagline": "备课可检查，成果可编辑",
+  "prompt": "为高一《师说》设计40分钟课堂，聚焦论点与证据，包含可观察的学习评价。"
+}

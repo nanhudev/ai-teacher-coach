@@ -1,3 +1,7 @@
+> **Desktop portfolio edition 0.4.0 (preview)**: [Download](https://github.com/nanhudev/ai-teacher-coach/releases/tag/desktop-v0.4.0) · [Getting started](docs/QUICKSTART.md) · [Product case and evidence](docs/PORTFOLIO.md) · [Resume notes](docs/RESUME.md)
+>
+> Windows EXE and Apple Silicon DMG. The existing web / CLI documentation follows; the desktop product case describes its current scope. Live AI requests require separate acceptance with the user's own authorized account.
+
 <div align="center">
 
 # AI Teacher Coach
@@ -20,7 +24,7 @@ One text or topic in → teaching analysis · lesson plan · Chinese-language sl
 
 ## What this is
 
-A lesson-prep tool that is **actually live and actually being used by teachers** — not a prompt demo, not a slide generator.
+A lesson-prep and review tool for Chinese-language teachers. The repository provides web and desktop implementations; current automated and manual software evidence is documented in [the product case](docs/PORTFOLIO.md). Teacher adoption and classroom outcomes have not been measured in this upgrade.
 
 It targets one concrete problem. In Chinese-language lesson prep, the expensive part is not writing prose. It is **keeping teaching judgement, textbook evidence, slide presentation and curriculum requirements aligned** — a teaching analysis that reads beautifully but contradicts the lesson plan, or a template that looks great but silently rewrites the source text. Both are common accidents in real classrooms.
 
@@ -28,7 +32,7 @@ It targets one concrete problem. In Chinese-language lesson prep, the expensive 
 
 > No login → pick a text or type any topic → teaching analysis → lesson plan → slides → virtual-student simulation → teaching evaluation
 
-**Status**: the public site is released and works on desktop and mobile. Arbitrary course topics, the user system and product analytics are in beta.
+**Status**: the existing public web address is linked above. This upgrade verifies local browser behavior and desktop packages, not current production deployment or classroom outcomes. Arbitrary course topics, the user system and product analytics remain in beta.
 
 ---
 
@@ -43,7 +47,7 @@ Template library: aesthetics (ink-wash / academic / inquiry)
 Renderer:         outputs React / PPTX
 ```
 
-**Why split it this way**: if you ask one LLM to own *teaching reasoning* and *layout rules* and *aesthetics* at once, it lands around 70% on all three and produces something different every time. Pull hard rules and aesthetics out of the model and into version-controlled files, and:
+**Why split it this way**: if you ask one LLM to own *teaching reasoning* and *layout rules* and *aesthetics* at once, the requirements can compete and the output can vary between runs. Pull hard rules and aesthetics out of the model and into version-controlled files, and:
 
 - slide structure becomes **testable** (required sections, explicit prohibitions)
 - switching templates **no longer loses source text**
@@ -58,7 +62,7 @@ The same logic applies per page: every slide must declare a `slide_goal` — **e
 ### Teaching analysis
 Generated around the current course: the core question · scholarly points of contention · common student misreadings · comparative-reading directions · curriculum-standard and exam-syllabus grounding · advanced insight usable in a demonstration lesson.
 
-**The analysis, the lesson plan and the slides share one course evidence pack** — structurally eliminating the "plan is relevant, analysis is boilerplate" failure.
+**The analysis, the lesson plan and the slides share one course evidence pack** — to reduce the risk of a relevant plan paired with unrelated analysis.
 
 ### Arbitrary Chinese-language courses (Beta)
 Not limited to textbook texts. You can enter:
@@ -228,8 +232,8 @@ docs/                 product documentation
 
 | Trade-off | Reasoning |
 |---|---|
-| Skill files own hard rules, the LLM owns teaching reasoning | Makes slide structure testable; avoids a model averaging 70% across every requirement |
-| Analysis / plan / slides share one evidence pack | Structurally removes contradictions between the three |
+| Skill files own hard rules, the LLM owns teaching reasoning | Makes slide structure testable; keeps deterministic requirements independent from model output |
+| Analysis / plan / slides share one evidence pack | Reduces the risk of inconsistent source context |
 | Every slide must declare `slide_goal` | Stops pages accumulating because they look good |
 | No source text ⇒ `verified=false` | Better to admit ignorance than to invent textbook text |
 | Classify course type before matching structure | Comparative reading and classical close reading should not share a frame |

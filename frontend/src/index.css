@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Nanhu Sans";
+  src: url("/fonts/NotoSansSC.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+}
+
 @theme {
-  --font-sans: "DM Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-display: "Noto Serif SC", "Songti SC", serif;
+  --font-sans: "Nanhu Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: "Nanhu Sans", "Songti SC", serif;
   --color-ink: #14241f;
   --color-ink-muted: #4a635b;
   --color-paper: #eef3ef;

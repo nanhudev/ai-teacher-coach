@@ -19,6 +19,7 @@ test('teacher can detect, fix and export a quotation without uploading input', a
   const dir = process.env.EVIDENCE_SCREENSHOT_DIR
   if (dir) {
     await fs.mkdir(dir, { recursive: true })
+    await page.evaluate(() => document.fonts.ready)
     await page.screenshot({ path: path.join(dir, 'quotation-desktop.png'), fullPage: true })
   }
   await page.getByRole('textbox', { name: '教案或课件文案' }).fill('“师者，所以传道受业解惑也。”')
@@ -48,5 +49,17 @@ test('mobile review fits the viewport and is reachable from home', async ({ page
   await page.getByRole('button', { name: '试用《师说》错字案例' }).click()
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
   const dir = process.env.EVIDENCE_SCREENSHOT_DIR
-  if (dir) await page.screenshot({ path: path.join(dir, 'quotation-mobile.png'), fullPage: true })
+  if (dir) { await page.evaluate(() => document.fonts.ready); await page.screenshot({ path: path.join(dir, 'quotation-mobile.png'), fullPage: true }) }
+})
+
+test('Chinese headings render with the local font when external font services are unavailable', async ({ page }) => {
+  await page.route(/https:\/\/fonts\.(googleapis|gstatic)\.com\//, route => route.abort())
+  await page.goto('/review')
+  await page.evaluate(() => document.fonts.ready)
+  const client = await page.context().newCDPSession(page)
+  await client.send('DOM.enable'); await client.send('CSS.enable')
+  const { root } = await client.send('DOM.getDocument')
+  const { nodeId } = await client.send('DOM.querySelector', { nodeId: root.nodeId, selector: 'h1' })
+  const { fonts } = await client.send('CSS.getPlatformFontsForNode', { nodeId })
+  expect(fonts.some(f => f.isCustomFont && f.familyName.includes('Noto Sans SC') && f.glyphCount > 0)).toBe(true)
 })

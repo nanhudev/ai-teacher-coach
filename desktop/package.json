@@ -1,6 +1,6 @@
 {
   "name": "ai-teacher-coach-desktop",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "description": "生成40分钟教案，核对原文引句，审阅教学环节，再导出可以继续编辑的课件。",
   "author": "nanhudev",
@@ -38,6 +38,7 @@
       "*.json",
       "index.html",
       "style.css",
+      "fonts/**",
       "!package-lock.json",
       "!stage.cjs",
       "!runtime/**",

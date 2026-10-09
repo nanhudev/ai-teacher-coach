@@ -1,6 +1,6 @@
-> **桌面作品集版 0.4.0（预览）**：[下载安装包](https://github.com/nanhudev/ai-teacher-coach/releases/tag/desktop-v0.4.0) · [三分钟上手](docs/QUICKSTART.md) · [产品案例与真实证据](docs/PORTFOLIO.md) · [简历描述](docs/RESUME.md)
+> **桌面版 0.4.1（预览）**：[下载安装包](https://github.com/nanhudev/ai-teacher-coach/releases/tag/desktop-v0.4.1) · [三分钟上手](docs/QUICKSTART.md) · [桌面构建与授权](docs/DESKTOP.md)
 >
-> 提供 Windows EXE、Apple Silicon DMG 和 Linux x64 AppImage / deb。下方保留原有网页 / CLI 介绍；新桌面版的能力与验证范围以产品案例为准，真实账户 AI 请求仍待本人授权验收。
+> 提供 Windows x64 EXE、Apple Silicon DMG 与 Linux x64 AppImage / deb。下方为已有网页 / CLI 说明，真实 AI 请求需要使用者本人完成官方授权。
 
 <div align="center">
 
@@ -24,7 +24,7 @@
 
 ## 这是什么
 
-面向语文教师的备课与复核工具，仓库提供网页和桌面实现。[产品案例](docs/PORTFOLIO.md)记录本次升级的软件验证证据；教师采用情况和课堂效果尚未测量。
+面向语文教师的备课与复核工具，仓库提供网页和桌面实现。[桌面文档](docs/DESKTOP.md)记录本次升级的软件验证证据；教师采用情况和课堂效果尚未测量。
 
 它试图解决一个具体问题：高中语文备课里最耗时的不是"写字"，而是**把教学判断、教材依据、课件呈现和政策要求对齐**——
 教研报告写得漂亮但和教案对不上，课件模板好看但把原文改掉了，这些都是真实课堂里的常见事故。

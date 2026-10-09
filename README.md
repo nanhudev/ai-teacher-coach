@@ -1,6 +1,6 @@
-> **Desktop portfolio edition 0.4.0 (preview)**: [Download](https://github.com/nanhudev/ai-teacher-coach/releases/tag/desktop-v0.4.0) · [Getting started](docs/QUICKSTART.md) · [Product case and evidence](docs/PORTFOLIO.md) · [Resume notes](docs/RESUME.md)
+> **Desktop 0.4.1 (preview)**: [Download](https://github.com/nanhudev/ai-teacher-coach/releases/tag/desktop-v0.4.1) · [Getting started](docs/QUICKSTART.md) · [Desktop build and authentication](docs/DESKTOP.md)
 >
-> Windows EXE, Apple Silicon DMG and Linux x64 AppImage / deb. The existing web / CLI documentation follows; the desktop product case describes its current scope. Live AI requests require separate acceptance with the user's own authorized account.
+> Windows x64 EXE, Apple Silicon DMG, and Linux x64 AppImage / deb. Existing web / CLI documentation follows. Live AI requests require the user's own authorized account.
 
 <div align="center">
 
@@ -24,7 +24,7 @@ One text or topic in → teaching analysis · lesson plan · Chinese-language sl
 
 ## What this is
 
-A lesson-prep and review tool for Chinese-language teachers. The repository provides web and desktop implementations; current automated and manual software evidence is documented in [the product case](docs/PORTFOLIO.md). Teacher adoption and classroom outcomes have not been measured in this upgrade.
+A lesson-prep and review tool for Chinese-language teachers. The repository provides web and desktop implementations; current automated and manual software evidence is documented in [the desktop documentation](docs/DESKTOP.md). Teacher adoption and classroom outcomes have not been measured in this upgrade.
 
 It targets one concrete problem. In Chinese-language lesson prep, the expensive part is not writing prose. It is **keeping teaching judgement, textbook evidence, slide presentation and curriculum requirements aligned** — a teaching analysis that reads beautifully but contradicts the lesson plan, or a template that looks great but silently rewrites the source text. Both are common accidents in real classrooms.
 

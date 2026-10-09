@@ -12,7 +12,8 @@
     "package": "node stage.cjs && electron-builder --publish never",
     "package:win": "node stage.cjs && electron-builder --win --x64 --publish never",
     "test:ui": "node smoke.cjs",
-    "test:package": "node package-check.cjs"
+    "test:package": "node package-check.cjs",
+    "package:linux": "node stage.cjs && electron-builder --linux --x64 --publish never"
   },
   "dependencies": {
     "jose": "6.2.12",
@@ -84,7 +85,33 @@
       "artifactName": "ai-teacher-coach-${version}-Portable-${arch}.${ext}"
     },
     "icon": "icons/icon.png",
-    "publish": null
+    "publish": null,
+    "linux": {
+      "target": [
+        {
+          "arch": [
+            "x64"
+          ],
+          "target": "AppImage"
+        },
+        {
+          "arch": [
+            "x64"
+          ],
+          "target": "deb"
+        }
+      ],
+      "executableName": "ai-teacher-coach",
+      "category": "Education",
+      "maintainer": "nanhudev",
+      "icon": "icons/icon.png"
+    },
+    "appImage": {
+      "artifactName": "ai-teacher-coach-${version}-linux-x64.${ext}"
+    },
+    "deb": {
+      "artifactName": "ai-teacher-coach-${version}-linux-amd64.${ext}"
+    }
   },
   "repository": {
     "type": "git",
